@@ -7,7 +7,7 @@
 # Clear the workspace
 rm(list = ls())
 
-setwd("~/GitHubs/MemeCourse")
+setwd("~/GitHubs/EvoEcoResearchCourse2014")
 library(reshape2)
 
 
@@ -89,6 +89,28 @@ CreateDataRedox <- function()
 	data_redox <- read.table("Redox.csv",header=TRUE,sep="\t")
 	data_redox <- subset(data_redox,depth_cm != 5)
 	data_redox
+	#Remove the replicate column
+	data_redox <- data_redox[c("dist_m","depth_cm","redox_calib") ]
+	# Take the average redox values, so that every distance and depth has a single redox value
+	data_redox <- aggregate(data_redox,list(data_redox$depth_cm,data_redox$dist_m),mean)
+	data_redox <- data_redox[c("dist_m","depth_cm","redox_calib") ]
+	data_redox
+}
+
+CreateDataRedoxAll <- function()
+{	
+	data_redox <- read.table("Redox.csv",header=TRUE,sep="\t")
+	#Remove the replicate column
+	data_redox <- data_redox[c("dist_m","depth_cm","redox_calib") ]
+	# Take the average redox values, so that every distance and depth has a single redox value
+	data_redox <- aggregate(data_redox,list(data_redox$depth_cm,data_redox$dist_m),mean)
+	data_redox <- data_redox[c("dist_m","depth_cm","redox_calib") ]
+	data_redox
+}
+
+GetRedoxPerDistance <- function()
+{	
+	data_redox <- read.table("Redox.csv",header=TRUE,sep="\t")
 	#Remove the replicate column
 	data_redox <- data_redox[c("dist_m","depth_cm","redox_calib") ]
 	# Take the average redox values, so that every distance and depth has a single redox value
@@ -367,3 +389,48 @@ rm(y_min)
 rm(y_max)
 rm(y_text)
 
+
+
+# Can the redox potentials at a certain distane be assumed to be linear at a certain depth?
+CreateDataRedoxAll()
+n_lth <- 0
+n_htl <- 0
+n_uno <- 0
+orderedness_per_distance <- data.frame(dist_m = numeric(),order = factor())
+
+for (i in GetDistances())
+{
+	print(i)
+	data <- subset(CreateDataRedoxAll(),dist_m == i)
+	low <- subset(data,depth_cm == 2)$redox_calib
+	mid <- subset(data,depth_cm == 5)$redox_calib
+	high <- subset(data,depth_cm == 10)$redox_calib
+  if (low < mid && mid < high) 
+  { 
+  	print("Ordered from low to high") 
+  	n_lth <- n_lth + 1
+  	orderedness_per_distance <- rbind(orderedness_per_distance,data.frame(dist_m = i,order = "LTH"))
+  } else if(low > mid && mid > high) 
+  { 
+  	print("Ordered from high to low") 
+  	n_htl <- n_htl + 1
+  	orderedness_per_distance <- rbind(orderedness_per_distance,data.frame(dist_m = i, order = "HTL"))
+  } else  { 
+  	print("Unordered") 
+  	n_uno <- n_uno + 1
+  	orderedness_per_distance <- rbind(orderedness_per_distance,data.frame(dist_m = i, order = "UNO"))
+  }
+}
+orderedness_per_distance
+print(n_lth)
+print(n_lth)
+print(n_uno)
+
+
+  #m <- lm(redox_calib ~ depth_cm,data = subset(CreateDataRedoxAll(),dist_m == i))
+  #plot(redox_calib ~ depth_cm,data = subset(CreateDataRedoxAll(),dist_m == i))
+  #abline(m)
+  #summary(m)
+ #}
+plot(redox_calib ~ dist_m, data = CreateDataRedoxAll())
+?lm
