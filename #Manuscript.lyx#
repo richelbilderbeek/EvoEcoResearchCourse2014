@@ -1525,7 +1525,8 @@ name "table_species_count_at_depth"
 
 \end_inset
 
-All 18 species and the number of individuals found per species per depth.R
+All 18 species and the number of individuals found per species per depth.
+ Total number of individuals: 863.
 \begin_inset Note Note
 status open
 
@@ -1575,7 +1576,7 @@ name "fig:RedoxPerDistance"
 
 \end_inset
 
-Redox potentials along the transect.
+Redox potentials along the transect
 \end_layout
 
 \end_inset
@@ -1614,7 +1615,7 @@ name "fig:SpeciesAbundances"
 
 \end_inset
 
-Number of individuals at the different redox potentials.
+Number of individuals at the different redox potentials
 \end_layout
 
 \end_inset
@@ -2693,13 +2694,11 @@ key "WitteAndWilde1979"
 Coupling a redox potential at a single depth to species abundances at a
  range of depths may have been too much of a simplification.
  Redox potential changes when probing at different depths in the soil, but
- whether this change is monotonous was unknown.
- After drawing the conclusions, the change of redox potential was analyzed
- for its orderedness.
+ whether this change is monotonous was unknown before drawing the conclusions.
  Because in the experiments also the redox potential at 5 cm deep was measured,
- it could be tested if redox potential changes monotonously for depths 2,
- 5 and 10 cm.
- It was found that this was the case in 10 out of 13 locations (see table
+ it could be tested that redox potential changes monotonously for depths
+ 2, 5 and 10 cm.
+ It was found that this was the case in 10 out of 13 measurements (see table
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2708,12 +2707,6 @@ reference "tab:Orderedness"
 \end_inset
 
 ).
- Thus, in 3 out of 13 cases, the redox potential at intermediate depth was
- the heighest or lowest value measured at that location.
- There can be two explanations for this unexpected pattern: (1) the soil
- redox potential is a complex abiotic variable that does not follow a monotonic
- change, or (2) the noise in the redox measurement is higher than the change
- in 'true' redox potential between depths.
 \end_layout
 
 \begin_layout Bibliography
@@ -2864,6 +2857,14 @@ Arenicola marina
 \shape default
 .
  Netherlands Journal of Sea Research 13(3/4): 394-405
+\end_layout
+
+\begin_layout Subsection*
+Appendix
+\end_layout
+
+\begin_layout Standard
+?Documentation of R code?
 \end_layout
 
 \end_body

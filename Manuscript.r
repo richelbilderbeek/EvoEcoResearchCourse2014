@@ -192,6 +192,29 @@ TallySelectedSpeciesPerRedox <- function()
 	redox_to_species
 }
 
+# Can the redox potentials at a certain distane be assumed to be linear at a certain depth?
+CalcOrderednessPerDistance <- function()
+{
+	orderedness_per_distance <- data.frame(dist_m = numeric(),order = factor())
+	for (i in GetDistances())
+	{
+		data <- subset(CreateDataRedoxAll(),dist_m == i)
+		low <- subset(data,depth_cm == 2)$redox_calib
+		mid <- subset(data,depth_cm == 5)$redox_calib
+		high <- subset(data,depth_cm == 10)$redox_calib
+	  if (low < mid && mid < high) 
+	  { 
+	  	orderedness_per_distance <- rbind(orderedness_per_distance,data.frame(dist_m = i,order = "LTH"))
+	  } else if(low > mid && mid > high) 
+	  { 
+	  	orderedness_per_distance <- rbind(orderedness_per_distance,data.frame(dist_m = i, order = "HTL"))
+	  } else  { 
+	  	orderedness_per_distance <- rbind(orderedness_per_distance,data.frame(dist_m = i, order = "UNO"))
+	  }
+	}
+	orderedness_per_distance
+}
+
 
 if (length(CreateDataBenthos()$dist_m) != 863)
 {
@@ -263,9 +286,15 @@ if (length(TallySelectedSpeciesPerRedox()) != 3)
 	print(length(TallySelectedSpeciesPerRedox()))
 }
 
+if (length(CalcOrderednessPerDistance()$dist_m) != 16)
+{
+	print("ERROR in CalcOrderednessPerDistance: must have 16 distances")
+}
+
 
 write.csv(GetSpeciesCountAtDepths(),file="table_species_count_at_depth.csv")
 write.csv(GetSelectedSpecies(),file="table_selected_species.csv")
+write.csv(CalcOrderednessPerDistance(),file="table_orderedness_per_distance.csv")
 
 # Do statistics per species
 shapiro.test(GetRedoxesHydrobia()$redox_calib)
@@ -391,46 +420,5 @@ rm(y_text)
 
 
 
-# Can the redox potentials at a certain distane be assumed to be linear at a certain depth?
-CreateDataRedoxAll()
-n_lth <- 0
-n_htl <- 0
-n_uno <- 0
-orderedness_per_distance <- data.frame(dist_m = numeric(),order = factor())
-
-for (i in GetDistances())
-{
-	print(i)
-	data <- subset(CreateDataRedoxAll(),dist_m == i)
-	low <- subset(data,depth_cm == 2)$redox_calib
-	mid <- subset(data,depth_cm == 5)$redox_calib
-	high <- subset(data,depth_cm == 10)$redox_calib
-  if (low < mid && mid < high) 
-  { 
-  	print("Ordered from low to high") 
-  	n_lth <- n_lth + 1
-  	orderedness_per_distance <- rbind(orderedness_per_distance,data.frame(dist_m = i,order = "LTH"))
-  } else if(low > mid && mid > high) 
-  { 
-  	print("Ordered from high to low") 
-  	n_htl <- n_htl + 1
-  	orderedness_per_distance <- rbind(orderedness_per_distance,data.frame(dist_m = i, order = "HTL"))
-  } else  { 
-  	print("Unordered") 
-  	n_uno <- n_uno + 1
-  	orderedness_per_distance <- rbind(orderedness_per_distance,data.frame(dist_m = i, order = "UNO"))
-  }
-}
-orderedness_per_distance
-print(n_lth)
-print(n_lth)
-print(n_uno)
 
 
-  #m <- lm(redox_calib ~ depth_cm,data = subset(CreateDataRedoxAll(),dist_m == i))
-  #plot(redox_calib ~ depth_cm,data = subset(CreateDataRedoxAll(),dist_m == i))
-  #abline(m)
-  #summary(m)
- #}
-plot(redox_calib ~ dist_m, data = CreateDataRedoxAll())
-?lm
