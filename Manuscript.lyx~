@@ -1525,7 +1525,7 @@ name "table_species_count_at_depth"
 
 \end_inset
 
-All 18 species and the number of individuals found per species per depth.
+All 18 species and the number of individuals found per species per depth.R
 \begin_inset Note Note
 status open
 
@@ -2864,14 +2864,6 @@ Arenicola marina
 \shape default
 .
  Netherlands Journal of Sea Research 13(3/4): 394-405
-\end_layout
-
-\begin_layout Subsection*
-Appendix
-\end_layout
-
-\begin_layout Standard
-?Documentation of R code?
 \end_layout
 
 \end_body
