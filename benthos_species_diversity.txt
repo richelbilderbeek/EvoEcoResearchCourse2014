@@ -1,0 +1,10 @@
+Distance_m: Distance in meters from the origin of the transect
+Replicate: replicate number (0 = unknown, 1 = replicate 1, 2 = replicate 2)
+Benthos fraction:
+  D: Deep, 5-20 cm
+  S: Shallo: 0-5 cm
+  U: Unknown
+Core type (device to extract the soil core with):
+  M: Metal
+  P: Plastic
+Species: the species name (Latin)

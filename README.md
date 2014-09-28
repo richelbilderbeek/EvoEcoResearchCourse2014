@@ -1,4 +1,16 @@
-EvoEcoResearchCourse2014
-========================
+MemeCourse
+==========
 
-My manuscript for the Evolutionary and Ecology Research course given at the University of Groningen in 2014
+My work at the MEME course 2014.
+
+ * [Manuscript (PDF)](Manuscript.pdf)
+ * [R script](Manuscript.r)
+
+
+
+R packages to install:
+ * agricolae
+ * MASS
+ * plyr
+ * reshape2
+ * vegan

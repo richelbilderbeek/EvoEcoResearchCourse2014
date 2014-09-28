@@ -1,0 +1,117 @@
+
+
+ 10. PRESENTATION OF MANUSCRIPTS
+
+Ecology Letters places great emphasis on its prompt and accurate review of submitted manuscripts. This requires that manuscripts be concise and carefully prepared: they must be complete, with all reporting of methods, results and citations fully checked and in final form. Figures and tables must be clear and well presented. All pages should be numbered consecutively. Manuscripts judged to be too hastily or poorly prepared will be rejected without the possibility of resubmission. The correct presentation of manuscripts is detailed below.
+
+Manuscripts should be written in clear, concise and grammatically correct English. Authors for whom English is their second language should therefore have their manuscript thoroughly corrected by a native English speaker prior to submission where necessary. This may be on an informal basis through a colleague or acquaintance, or on a professional basis through a copy-editing service. To assist authors who wish to use a professional copy-editor, a list of independent suppliers of editing services can be found at the Author Services website. All services are paid for and arranged by the author, and use of one of these services does not guarantee acceptance or preferential treatment.
+
+I.  Title page
+Statement of authorship: Contributions by authors should be listed on the title page and will be printed at the end of the manuscript. This statement should be appropriate to the study described in the manuscript and should clarify who designed the study, who performed the research, who provided new methods or materials, and who wrote the manuscript. We encourage concise statements such as “JW performed phylogenetic analyses, MH collected data, performed modeling work and analyzed output data, and PK performed the meta-analysis. MH wrote the first draft of the manuscript, and all authors contributed substantially to revisions.”
+
+The title page must also contain:
+ - the article title
+ - full name(s), affiliation(s) and e-mail address(es) of all author(s)
+ - a short running title (abbreviated form of title) of less than 45 characters including spaces
+ - up to 10 keywords for indexing purposes. It is very important that the keywords be chosen carefully
+ - the type of article (Ideas and Perspectives, Letters, Reviews and Syntheses, or Technical Comments)
+ - the number of words in the abstract, the number of words in the main text (excluding abstract, acknowledgements, references, table and figure legends), and the number of words in each text box
+ - the number of references (or for papers with more than 20 data-source references separately state the number of data-source references AND the number of general references)
+ - the number of figures, tables, and text boxes
+ - the name and complete mailing address (including telephone and fax numbers and e-mail address) of the person to whom correspondence should be sent
+
+Back To Top
+
+II. Abstract page
+The abstract page should contain a short summary not exceeding 150 words for Letters, and 200 words for Ideas and Perspectives and Reviews and Syntheses.
+
+III. Main text (Sections b-d required for Letters only)
+(a) Introduction. The introduction should summarize briefly the background and aims, and end with a very brief statement of what has been achieved by the work.
+
+(b) Material and methods. This section should contain sufficient detail so that all procedures can be repeated (in conjunction with cited references). A checklist is provided so that authors can check that their methods report details which our editors regard as essential. This checklist is available here. Where specific equipment and materials are named, the manufacturer's name, city and country should be given (generally in parentheses after first mention).
+
+(c) Results. The Results section should present the experiments that support the conclusions to be drawn later in the Discussion. The Results section should conform to a high standard of rigour. Extended lines of inference, arguments or speculations should not be placed in the Results.
+
+(d) Discussion. The Discussion section should be separate from the Results section. It allows authors to propose their interpretation of the results, and to suggest what they might mean in a wider context. It should end with a clear statement of the main conclusions of the research, and a clear explanation of their importance and relevance.
+
+(e) Acknowledgements. Acknowledgements should be brief and concise.
+
+(f) References. See below for detailed information to in-text citations and Reference list.
+
+Back To Top
+
+IV. Citing references in text
+We recommend the use of a program such as EndNote or Reference Manager for reference management and formatting. EndNote reference styles can be searched for at: http://www.endnote.com/support/enstyles.asp. Reference Manager reference styles can be searched for at: http://www.refman.com/support/rmstyles.asp.
+
+In the text, references should always be listed chronologically and in full unless there are three or more authors. Example: Able et al. 1997; Able & Charles 1986; Lowe et al. 1986. For references made to papers with three or more authors, only the first name is cited, and followed by “et al.” For instance, Frank et al. 1986. References made to works by the same author(s) and publication year should be included after the year of publication. For instance James et al. 1986a, b. References should not be numbered in the text. Example of data citation in text: “Data available from the Dryad Digital Repository: http://dx.doi.org/10.5061/dryad.XXXXX”.
+
+V. Reference list
+In the reference list, names and initials of all authors should be provided for papers with six authors or less. For papers with more than six authors, only the first six authors should be cited, and followed by “et al.”. References should be listed in the following standard forms:
+
+    Journal articles
+    Last name, Initials. et al. (Year). Full title of article. Abbreviated journal title (standard abbreviations), Volume number, page range.
+    Books
+    Last name, Initials. et al. (Year). Full title of book. Edition (only include this if not the first edition). Publisher, place (cities only except for USA and UK), pp. (page range)
+    Chapters in books
+    Last name, Initials. et al. (Year). Full title of chapter. In: (Full title of book), Edition (only include this if not the first edition) {  [ed(s).]  [Editors(s) last name, initials]  }. Publisher, City (Include state and country for USA and UK), pp. (page range).
+    Data
+    Last name, Initials. et al. (Year). Data from: (Title of article). Dryad Digital Repository. Available at: http://dx.doi.org/10.5061/dryad.585t4.
+    Websites
+    Authorship or Source. (Year). Title of web document or web page. Available at: [URL]. Last accessed DD MONTH YYYY. References to material available on the World Wide Web can be given only if the information is available on an official site and without charge to readers. Authors may provide electronic copies of the cited material for inclusion on the Ecology Letters Homepage at the discretion of the Editors. 
+
+
+References should be listed in alphabetical order at the end of the paper, and numbered sequentially (in the reference list only). A number and a line break should be added between each reference. An example of a correctly formatted reference list:
+1.
+Begon, M., Harper, J. & Townsend, C. (1996). Ecology: Individuals, Populations and Communities. 3rd edn. Blackwell Science, Oxford.
+2.
+Ferris, C., King, R.A. & Gray, A.J. (1997). Molecular evidence for the maternal parentage in the hybrid origin of Spartina anglica C.E. Hubbard. Mol. Ecol., 6, 185-187.
+3.
+Milligan, B. (1992). Plant DNA isolation. In: Molecular Genetic Analysis of Populations: A Practical Approach (ed. Hoelzel, A.R.). IRL Press, Oxford, UK, pp. 59-88.
+4.
+National Science Foundation (2010). Ocean acidification. Available at: http://www.nsf.gov/pubs/2010/nsf10530/nsf10530.htm. Last accessed 7 September 2010.
+
+Back To Top
+
+VI. Reference to unpublished works
+
+    ‘In press’ papers
+    Only permissible for papers that had been accepted for publication (documentary evidence of acceptance must be provided).
+    Example: Vázquez, D.P. & Simberloff, D. (2003). Changes in interaction biodiversity induced by an introduced ungulate. Ecol. Lett., in press (accepted).
+    Personal communication
+    Citation must be accompanied by the names of all persons concerned. Any person cited as the source of a 'personal communication' must have approved the reference. 
+
+Back To Top
+
+11. SPECIFICATIONS
+
+Text
+Files should be formatted double-spaced with no hyphenation or automatic wordwrap (no hard returns within paragraphs). Please type your text consistently, for example take care to distinguish between '1' (one) and 'l' (lowercase L), and '0' (zero) and 'O' (capital o), and so on.
+
+Tables
+Tables should be submitted as MS Excel or MS Word documents (or equivalent). Tables should be cited consecutively in the text and numbered with Arabic numerals (Table 1, Table 2, etc.). Each table should be titled and typed double-spaced on a separate sheet. Captions should not exceed 150 words per table (footnote included). Units must be clearly indicated for each of the entries in the table. Footnotes to tables should be identified by the symbols * † ‡ § ¶ (in that order) and placed at the bottom of the table. No vertical rules should be used.
+
+Figures
+Figures should be cited consecutively in the text by Arabic numerals (Fig. 1, Fig. 2, etc.) and should be grouped together at the end of the paper or in a separate file(s). Legends should be typed double-spaced and grouped at the end of the paper. Captions should not exceed 150 words per figure. Line and combination figures should preferably be submitted in vector graphics format (e.g. either embedded as vector graphics in a Word document or saved separately in PDF or eps format). If this is not possible, they should be saved separately as pixel-based graphics at 600 dpi at the required print size, and they should be saved in TIFF (not jpg) format or embedded as such in Word. Photographic figures should be saved at 300 dpi in TIFF format, or jpg format with low compression. Figures should be drawn/submitted at their smallest practicable size (to fit a single column (82 mm), two-thirds page width (110 mm) or full page width (173 mm). Over-sized figures will be reduced by the Production Editor. If figures are drawn larger than reproduction size, component parts such as symbols and text must be large enough to allow for the necessary reduction. For full instructions on preparing your figures, see our Electronic Artwork Information for Authors page and the electronic artwork guidelines.
+
+Back To Top
+
+Text Boxes
+Text boxes may be used for standalone definitions, equations, necessary explanations of concepts, a glossary (if needed only), and other items that disrupt the flow of the manuscript or where repeated reference to them is necessary. Text boxes can include equations and references (included in the main reference list), but not tables, figures or footnotes. Text boxes are limited to 750 words including a title. Items in text boxes that are not logically separate from the main text of the manuscript should be incorporated into the main text. A glossary should only be given if the language is complex enough that it may not be understood by the general readership of the journal or if requested by an editor for the journal. Text boxes should be cited consecutively using Arabic numerals (e.g., Box 1, Box 2). Text for text boxes should be given after figures at the end of the manuscript and the text should begin with a short descriptive title, for instance “Box 1: Calculation of a trophic complexity index.”
+
+Scientific names
+The Latin names of each species should be given in full. Scientific names should be given priority in the text, with colloquial names in parentheses if desired. Please make sure that the identity of species used in your paper can be verified, unless these are very well known (e.g., Homo sapiens, Drosophila melanogaster, Escherichia coli). If the data came from another paper where the species was identified, it must be cited. If fresh data are presented, the name of the taxonomist who identified the specimens should be given, as well as the name of the company or provider of the organisms (e.g., a culture collection or seed company) and/or the reference work used to make the identification. Lodgement of voucher specimens in a recognized museum is desirable, especially for taxa which are poorly known, and should be stated in the manuscript.
+
+Mathematics
+Wherever possible, mathematical equations and symbols should be typed in-line by keyboard entry (using Symbol font for Greek characters, and superscript and subscript options where applicable). Do not embed equations or symbols using Equation Editor or Math Type or equivalents, when simple in-line, keyboard entry is possible. Equation softwares should only be used for displayed, multi-line equations and equations and symbols that cannot be typed. LaTex files are supported, but if submitting in this format authors should also provide an identical PDF file.
+
+Units and symbols
+Authors are requested to use the International System of Units (S.I., Système International d'Unités) where possible for all measurements [see Quantities, Units and Symbols, 2nd edn, 1975, The Royal Society (London)]. Note that mathematical expressions should contain symbols, not abbreviations. If the paper contains many symbols, it is recommended that they should be defined as early in the text as possible, or within a subsection of the Materials and Methods section. Journal style is not to italicise Greek letters where these refer to variables.
+
+Stable Isotope Data
+Please refer to the following document (here) for instructions on the formatting of stable isotope information.
+
+Back To Top
+
+12. COVER PHOTOS
+
+Authors are encouraged to submit high quality cover photos to the Editorial Office when their paper is accepted for publication (JPG format, landscape orientation, c. 12 x 17 cm). If selected, a high resolution (300 d.p.i.) file is required, preferably in CMYK colour. Authors should provide a short legend and a photo credit, indicating to which paper the photograph relates to. Five copies of the journal will be sent free of charge to the corresponding authors for successful images. 

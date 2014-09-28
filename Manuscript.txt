@@ -1,0 +1,172 @@
+Soil redox potential as a predictor of benthos species 
+composition in an intertidal zone
+
+Richel Bilderbeek
+
+Abstract
+
+Soil redox potential measurements can be done without much 
+physical effort in a short amount of time. Measuring benthos 
+species diversity involves more effort and time. This study 
+examines the use of soil redox potential to predict the abundance 
+of benthos species. The measurements are taken at an intertidal 
+zone at Schiermonnikoog, at a transect from salt marsh to muflat. 
+Benthos species and redox values were obtained from two depths, 
+so that the effect of inundation can be estimated. It was found 
+that redox potential alone is a better predictor of species 
+composition than inundation time, allowing these findings to be 
+extended to other ecosystems.
+
+  Introduction
+
+
+
+Species composition is one of the first and most vital pieces of 
+data a field-based ecological research needs to gather. Any way 
+to reliably conclude the same information with less work will 
+save researchers both time and resources. 
+
+  Materials and method
+
+
+
+Soil samples of 20 cm deep were taken at different distances. The 
+top 5 cm was seperated. Both parts of the soil sample were scored 
+for species. 
+
+
+
+Redox values were measured by a potentiometer using 4 
+platinum-tip electrodes and a solution of KCl as a reference. The 
+electrodes were put in at two depths: 2 cm and 10 cm, in this 
+sequence. The potential read is the value that remained constant, 
+when placing or changing the electrodes. The values read were 
+transformed to use earth as a reference point.
+
+
+
+Of the 18 species scored, only species with at least 3 
+individuals (the minimum to test for normality) at both depths 
+were analyzed using niche theory.
+
+
+
+For each species, a Chi-squared goodness-of-fit was used to 
+determine if abundance is distributed normally around a certain 
+redox potential.  
+
+  Results
+
+Of the 18 species scored, 8 species had at least 3 individuals at 
+both depths. Out of these 8 species, only 4 could be used, as not 
+all sites had their redox potential measured. From the 4 species 
+left, only the 2 species occurring at multiple redox potentials 
+were analyzed. 
+
+[float Table:
+
++-----------------------+-----------------+---------------------+
+| Redox potential (mV)  | Hydrobia ulvae  | Nereis diversicolor |
++-----------------------+-----------------+---------------------+
++-----------------------+-----------------+---------------------+
+|         -857          |       0         |          2          |
++-----------------------+-----------------+---------------------+
+|         -834          |       0         |          1          |
++-----------------------+-----------------+---------------------+
+|         -811          |       0         |          1          |
++-----------------------+-----------------+---------------------+
+|         -742          |       0         |          2          |
++-----------------------+-----------------+---------------------+
+|         -616          |       0         |          3          |
++-----------------------+-----------------+---------------------+
+|         -528          |      135        |          0          |
++-----------------------+-----------------+---------------------+
+|         -452          |       1         |          0          |
++-----------------------+-----------------+---------------------+
+|         -318          |       1         |          0          |
++-----------------------+-----------------+---------------------+
+|         -110          |       98        |          0          |
++-----------------------+-----------------+---------------------+
+|          89           |       59        |          0          |
++-----------------------+-----------------+---------------------+
+
+
+[Table 1:
+Number of individuals at the different redox potentials
+]
+
+
+]
+
+[float Table:
+
++----------------------+------+------------+----------+--------------+
+|        Name          |  p   | mean (mV)  | sd (mV)  | significance |
++----------------------+------+------------+----------+--------------+
++----------------------+------+------------+----------+--------------+
+| Hemigropsus takanoi  | 0.8  |    3.3     |   0.4    |      **      |
++----------------------+------+------------+----------+--------------+
+| Nereis diversicolor  | 0.6  |    7.7     |   0.8    |      *       |
++----------------------+------+------------+----------+--------------+
+
+
+[Table 2:
+Chi-squared goodness-of-fit of the species abundances on redox 
+potential. p denotes the goodness-of-fit.
+]
+]
+
+  Appendix
+
+  Total species count
+
+[float Table:
+
++---------------------------+--------------+--------------+
+|       Species name        | Depth: 2 cm  | Depth: 10 cm |
++---------------------------+--------------+--------------+
++---------------------------+--------------+--------------+
+|     Arenicola marina      |     12       |      1       |
++---------------------------+--------------+--------------+
+|       Bathyporeia         |      2       |      0       |
++---------------------------+--------------+--------------+
+|     Carcinus maenas       |      3       |      14      |
++---------------------------+--------------+--------------+
+|    Cerastoderma edule     |      5       |      22      |
++---------------------------+--------------+--------------+
+|    Crassostrea gigas      |      4       |      6       |
++---------------------------+--------------+--------------+
+|       Eteone longa        |      0       |      5       |
++---------------------------+--------------+--------------+
+|     Gammarus locusta      |      1       |      3       |
++---------------------------+--------------+--------------+
+|   Hemigropsus takanoi     |      4       |      11      |
++---------------------------+--------------+--------------+
+| Heteromastus filliformis  |      1       |      13      |
++---------------------------+--------------+--------------+
+|      Hydrobia ulvae       |     131      |     369      |
++---------------------------+--------------+--------------+
+|    Lanice conchilega      |      2       |      31      |
++---------------------------+--------------+--------------+
+|    Littorina littorea     |     11       |      51      |
++---------------------------+--------------+--------------+
+|     Macoma balthica       |      0       |      31      |
++---------------------------+--------------+--------------+
+|      Mytilus edulis       |      7       |      78      |
++---------------------------+--------------+--------------+
+|   Nereis diversicolor     |     14       |      10      |
++---------------------------+--------------+--------------+
+|      Nereis virens        |      3       |      0       |
++---------------------------+--------------+--------------+
+|    Scoloplas armiger      |      1       |      16      |
++---------------------------+--------------+--------------+
+|   Scrobicularia plana     |      1       |      0       |
++---------------------------+--------------+--------------+
+
+
+[Table 3:
+All 18 species and the number of indiduals found per species per 
+depth. Total number of individuals: 863
+]
+]
+

@@ -1,0 +1,7 @@
+Calibration of redox measurements:
+
+redox_raw= data obtained with the device in the field
+redox_calib= redox_raw data calibrated applying a quadratic function
+
+Redox_calib= ((1.8847*Redox_raw)-53.201)
+
