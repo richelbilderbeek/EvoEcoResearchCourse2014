@@ -15,7 +15,7 @@ Type of article: Letter
 
 Number of words in abstract: 107
 
-Number of words in main text: 
+Number of words in main text: 1053
 
 Number of words in text boxes: 0
 
@@ -63,11 +63,11 @@ Redox potential is not just a passive abiotic factor; it is a
 value of biological importance. Among others, redox potential can 
 be a measure of oxygen in the soil, and it is known that plant 
 roots can raise the oxygen level in the soil (and thus its redox 
-potential) ([Blossfeld2011]). This positive correlation, however, 
-is not always correct, because at least one other study finds a 
-negative correlation ([Dong2014]). As far as I know, using redox 
-potential as a predictor of bethos species being present or not, 
-has not yet been investigated. 
+potential) (Blossfeld et al. (2011)). This positive correlation, 
+however, is not always correct, because at least one other study 
+finds a negative correlation (Dong et al. (2014)). As far as I 
+know, using redox potential as a predictor of bethos species 
+being present or not, has not yet been investigated. 
 
 As redox potential is positively correlated with soil oxygen 
 concentration, and all animals need oxygen for respiration, I 
@@ -138,7 +138,7 @@ redox potentials for different inundation times.
 For each species, a Shapiro-Wilk normality test was used to 
 determine if abundance is distributed normally around a certain 
 redox potential. This test is chosen, as it has the best power 
-for a given significance ([Razali2011]).
+for a given significance (Razali and Wah (2011)).
 
 
 
@@ -172,7 +172,7 @@ This study makes a strong case that soil redox potential cannot
 be used to predict species abundances, for both Hydrobia ulvae 
 and Nereis diversicolor. 
 
-As Hydrobia ulvae is an epibenthic grazer ([Newell1965]), it 
+As Hydrobia ulvae is an epibenthic grazer (Newell (1965)), it 
 seems rather obvious that is not influenced by the oxygen level 
 of the soil underneath it. Less obvious is that individuals were 
 found in benthos 5 cm below the surface. This finding appears not 
@@ -182,10 +182,10 @@ ulvae found in the deeper soil were not individuals, but only the
 shells left.
 
 Nereis diversicolor creates burrows in the mud and is a predator 
-and scavanger ([Witte1979]). As it does not live in the soil 
-itself, nor does it feed on something in the soil itself, it is 
-not surprising that also this species is unaffected by soil redox 
-potential.
+and scavanger (Witte and Wilde de (1979)). As it does not live in 
+the soil itself, nor does it feed on something in the soil 
+itself, it is not surprising that also this species is unaffected 
+by soil redox potential.
 
 Coupling a redox potential at a single depth to species 
 abundances at a range of depths may have been too much of a 
