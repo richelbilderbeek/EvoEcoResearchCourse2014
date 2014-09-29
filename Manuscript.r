@@ -229,6 +229,110 @@ CalcOrderednessPerDistance <- function()
 	orderedness_per_distance
 }
 
+# Generate figure for species abundances for the range of redox potentials
+#   in two vertically aligned plots
+CreateFigureSpeciesAbundancesSeperate <- function()
+{
+	svg(filename="Figure_species_abundances_seperate.svg")
+	par(mfrow=c(2,1))
+	plot(
+		Hydrobia_ulvae ~ redox_calib, 
+		data = TallySpeciesPerRedox(), 
+		t = "b", 
+		pch = 19, 
+		col = "black",
+		#main = "Hydrobia ulvae abundance",
+		xlab = "Redox potential (mV)",
+		ylab = "# Hydrobia ulvae"
+	)
+	plot(
+		Nereis_diversicolor ~ redox_calib, 
+		data = TallySpeciesPerRedox(), 
+		t = "b", 
+		pch = 19, 
+		col = "black",
+		#main = "Nereis diversicolor abundance",
+		xlab = "Redox potential (mV)",
+		ylab = "# Nereis Diversicolor",
+		ylim = c(0,4)
+	)
+	par(mfrow=c(1,1))
+	dev.off()
+}
+
+# Generate figure for species abundances for the range of redox potentials
+#   in the same plot
+CreateFigureSpeciesAbundances <- function()
+{
+	svg(filename="Figure_species_abundances.svg")
+	par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for z axis
+	par(new = FALSE) 
+	plot(Hydrobia_ulvae ~ redox_calib, data = TallySpeciesPerRedox(), pch=19, axes=FALSE, xlab="Redox potential (mV)", ylab="", 
+	   type="b",col="blue"
+		#main="Species abundandances\nfor different redox potentials"
+	)
+	axis(1, col="black",las=1) #'las=1' align labels horizontally
+	axis(2, col="blue",las=1) #'las=1' align labels horizontally
+	mtext("# Hydrobia",side=2,line=2.5,col="blue")
+	box()
+	par(new = TRUE) # Prevents R from clearing the area 
+	plot(
+		Nereis_diversicolor ~ redox_calib, axes = FALSE, bty = "n", xlab = "", ylab = "", data = TallySpeciesPerRedox(),
+		type="b",
+		col = "red",
+		yaxt="n", 
+		pch = 19
+	)
+	axis(
+		side=4, 
+		at=seq(0,3,1), #Otherwise, 0.5 would be shown as a tick mark
+		col="red",
+		las=1 #Align labels horizontally
+	)
+	mtext("# Nereis", side=4, line=3,col="red")
+	legend("topright",
+	  inset=0.05,title = "Species name", c("Hydrobia ulvae", "Nereis diversicolor"),horiz=TRUE,
+	  fill=c("blue","red"), 
+		cex = 0.75
+	)
+	dev.off()
+}
+
+# Redox potentials along the transect for the two depths
+CreateFigureRedoxPerDistance <- function()
+{
+	svg(filename="Figure_redox_per_distance.svg")
+	dist_to_redox <- subset(CreateDataRedox(), CreateDataRedox()$dist_m %in% GetDistances())
+	y_min <- min(dist_to_redox$redox_calib) - 100
+	y_max <- max(dist_to_redox$redox_calib) + 1000
+	y_text <- y_max - 200
+	plot(
+		dist_to_redox$redox_calib ~ dist_to_redox$dist_m,
+		col = as.factor(dist_to_redox$depth_cm), 
+		pch = 19,
+		#main="Redox potentials along the transect\nfor the two depths",
+		xlab="Distance along transect (m)",
+		ylab="Redox potential (mV)",
+		ylim=c(y_min,y_max)
+	)
+	segments(1125,y_min,1125,y_max,col="black",lty=3)
+	segments(1900,y_min,1900,y_max,col="black",lty=3)
+	segments(2225,y_min,2225,y_max,col="black",lty=3)
+	text((1125 + 150) / 2,y_text,"Salt\nmarsh")
+	text((1900 + 1125) / 2,y_text,"Mud\nflat")
+	text((2225 + 1900) / 2,y_text,"Mussel\nbed")
+	text(-50 + ((2600 + 2225) / 2),y_text,"Mud\nflat")
+	legend("bottomleft",
+	  inset=0.05,title = "Sampling depth", c("2 cm", "10 cm"),horiz=TRUE,
+	  fill=c(1,2,3), cex = 1.0
+	)
+	rm(dist_to_redox)
+	rm(y_min)
+	rm(y_max)
+	rm(y_text)
+	dev.off()
+}
+
 assert("CreateDataBenthos: 863 individuals were scored at known depths",length(CreateDataBenthos()$dist_m) == 863)
 assert("GetSpeciesCountAtDepths: All 863 individuals must be seperated correctly at their depths",length(CreateDataBenthos()$dist_m) == sum(GetSpeciesCountAtDepths()$"2") + sum(GetSpeciesCountAtDepths()$"10"))
 assert("GetSpeciesCountAtDepths: 20 species were scored at all depths",length(GetSpeciesCountAtDepths()$species_name) == 20)
@@ -248,6 +352,8 @@ assert("CalcOrderednessPerDistance: must have 16 distances",length(CalcOrderedne
 write.csv(GetSpeciesCountAtDepths(),file="table_species_count_at_depth.csv")
 write.csv(GetSelectedSpecies(),file="table_selected_species.csv")
 write.csv(CalcOrderednessPerDistance(),file="table_orderedness_per_distance.csv")
+write.csv(TallySpeciesPerRedox(),file="table_redox_to_species.csv")
+write.csv(TallySelectedSpeciesPerRedox(),file="table_redox_to_selected_species.csv")
 
 # Do statistics per species
 shapiro.test(GetRedoxesHydrobia()$redox_calib)
@@ -262,100 +368,11 @@ shapiro.test(GetRedoxesNereis()$redox_calib)
 # data:  redoxes_nereis$redox_calib
 # W = 0.8341, p-value = 0.04965
 
-write.csv(TallySpeciesPerRedox(),file="table_redox_to_species.csv")
-write.csv(TallySelectedSpeciesPerRedox(),file="table_redox_to_selected_species.csv")
+# Creates Figure_species_abundances_seperate.svg 
+CreateFigureSpeciesAbundancesSeperate()
 
-# Generate figure for species abundances for the range of redox potentials
-#   in two vertically aligned plots
-svg(filename="Figure_species_abundances_seperate.svg")
-par(mfrow=c(2,1))
-plot(
-	Hydrobia_ulvae ~ redox_calib, 
-	data = TallySpeciesPerRedox(), 
-	t = "b", 
-	pch = 19, 
-	col = "black",
-	#main = "Hydrobia ulvae abundance",
-	xlab = "Redox potential (mV)",
-	ylab = "# Hydrobia ulvae"
-)
-plot(
-	Nereis_diversicolor ~ redox_calib, 
-	data = TallySpeciesPerRedox(), 
-	t = "b", 
-	pch = 19, 
-	col = "black",
-	#main = "Nereis diversicolor abundance",
-	xlab = "Redox potential (mV)",
-	ylab = "# Nereis Diversicolor",
-	ylim = c(0,4)
-)
-par(mfrow=c(1,1))
-dev.off()
+# Create Figure_species_abundances.svg 
+CreateFigureSpeciesAbundances()
 
-# Generate figure for species abundances for the range of redox potentials
-#   in the same plot
-svg(filename="Figure_species_abundances.svg")
-par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for z axis
-par(new = FALSE) 
-plot(Hydrobia_ulvae ~ redox_calib, data = TallySpeciesPerRedox(), pch=19, axes=FALSE, xlab="Redox potential (mV)", ylab="", 
-   type="b",col="blue"
-	#main="Species abundandances\nfor different redox potentials"
-)
-axis(1, col="black",las=1) #'las=1' align labels horizontally
-axis(2, col="blue",las=1) #'las=1' align labels horizontally
-mtext("# Hydrobia",side=2,line=2.5,col="blue")
-box()
-par(new = TRUE) # Prevents R from clearing the area 
-plot(
-	Nereis_diversicolor ~ redox_calib, axes = FALSE, bty = "n", xlab = "", ylab = "", data = TallySpeciesPerRedox(),
-	type="b",
-	col = "red",
-	yaxt="n", 
-	pch = 19
-)
-axis(
-	side=4, 
-	at=seq(0,3,1), #Otherwise, 0.5 would be shown as a tick mark
-	col="red",
-	las=1 #Align labels horizontally
-)
-mtext("# Nereis", side=4, line=3,col="red")
-legend("topright",
-  inset=0.05,title = "Species name", c("Hydrobia ulvae", "Nereis diversicolor"),horiz=TRUE,
-  fill=c("blue","red"), 
-	cex = 0.75
-)
-dev.off()
-
-# Redox potentials along the transect for the two depths
-svg(filename="Figure_redox_per_distance.svg")
-dist_to_redox <- subset(CreateDataRedox(), CreateDataRedox()$dist_m %in% GetDistances())
-y_min <- min(dist_to_redox$redox_calib) - 100
-y_max <- max(dist_to_redox$redox_calib) + 1000
-y_text <- y_max - 200
-plot(
-	dist_to_redox$redox_calib ~ dist_to_redox$dist_m,
-	col = as.factor(dist_to_redox$depth_cm), 
-	pch = 19,
-	#main="Redox potentials along the transect\nfor the two depths",
-	xlab="Distance along transect (m)",
-	ylab="Redox potential (mV)",
-	ylim=c(y_min,y_max)
-)
-segments(1125,y_min,1125,y_max,col="black",lty=3)
-segments(1900,y_min,1900,y_max,col="black",lty=3)
-segments(2225,y_min,2225,y_max,col="black",lty=3)
-text((1125 + 150) / 2,y_text,"Salt\nmarsh")
-text((1900 + 1125) / 2,y_text,"Mud\nflat")
-text((2225 + 1900) / 2,y_text,"Mussel\nbed")
-text(-50 + ((2600 + 2225) / 2),y_text,"Mud\nflat")
-legend("bottomleft",
-  inset=0.05,title = "Sampling depth", c("2 cm", "10 cm"),horiz=TRUE,
-  fill=c(1,2,3), cex = 1.0
-)
-rm(dist_to_redox)
-rm(y_min)
-rm(y_max)
-rm(y_text)
-dev.off()
+# Create Figure_redox_per_distance.svg
+CreateFigureRedoxPerDistance()
