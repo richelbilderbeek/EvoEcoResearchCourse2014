@@ -150,11 +150,6 @@ maximum of 5000 words in length for the main text (introduction, methods,
 
 \end_layout
 
-\begin_layout Quote
-He who does not expect will not find out the unexpected, for it is trackless
- and unexplored (Heraclitus)
-\end_layout
-
 \begin_layout Standard
 \begin_inset Note Note
 status open
@@ -175,8 +170,8 @@ Species composition is one of the first and most vital pieces of data a
  Any way to reliably conclude the same information with less work will save
  researchers both time and resources.
  One piece of information that is easy to obtain is a soil its redox potential.
- Redox potential is not just a passive abiotic factor; it is a value is
- of biological importance instead.
+ Redox potential is not just a passive abiotic factor; it is a value of
+ biological importance.
  Among others, redox potential can be a measure of oxygen in the soil, and
  it is known that plant roots can raise the oxygen level in the soil (and
  thus its redox potential) 
@@ -196,8 +191,8 @@ key "DongEtAl2014"
 \end_inset
 
 .
- As far as I know, using redox potential as a predictor of species being
- present or not, has not yet been investigated.
+ As far as I know, using redox potential as a predictor of bethos species
+ being present or not, has not yet been investigated.
  It might be so, because no relation is expected.
  Would this relation be found, those expectations were incorrect.
 \end_layout
@@ -384,7 +379,7 @@ R
 The script to analyze the data is written in R and can be downloaded at
  
 \begin_inset Flex URL
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -2607,23 +2602,6 @@ The way the redox potentials are ordered when measuring a redox potential
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section*
-Conclusion
-\end_layout
-
-\begin_layout Standard
-Given a certain redox potential, the abundances of both 
-\shape italic
-Hydrobia ulvae
-\shape default
- and 
-\shape italic
-Nereis diversicolor
-\shape default
- can not be predicted, when assuming their abundance are distributed normally
- around a certain redox potential.
 \end_layout
 
 \begin_layout Section*

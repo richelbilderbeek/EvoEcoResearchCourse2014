@@ -1,14 +1,31 @@
+# Manuscript, script to generate figures and tables for the Evolution & Ecology Research course 2014
+# Copyright (C) 2014 Richel Bilderbeek
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.If not, see <http://www.gnu.org/licenses/>.
+#
+# File can be downloaded from https://github.com/richelbilderbeek/EvoEcoResearchCourse2014
+#
 # Research question: Can I predict where species are from a redox potential?
 # Experiment: 
-#  Couple shallow benthos with redox measurement of 2 cm
-#  Couple deep benthos with redox measurement of 10 cm
+# * Couple shallow (0-5 cm) benthos abundances with redox measurement of 2 cm
+# * Couple deep (5-20 cm) benthos abundances with redox measurement of 10 cm
 # Answer: 
-
-# Clear the workspace
+# * No 
 rm(list = ls())
 
 setwd("~/GitHubs/EvoEcoResearchCourse2014")
 library(reshape2)
+library(testit)
 
 
 # Create benthos data as such:
@@ -215,82 +232,22 @@ CalcOrderednessPerDistance <- function()
 	orderedness_per_distance
 }
 
-
-if (length(CreateDataBenthos()$dist_m) != 863)
-{
-  print("ERROR in CreateDataBenthos: 863 individuals were scored at known depths")
-}
-if (length(CreateDataBenthos()$dist_m) 
-	!= sum(GetSpeciesCountAtDepths()$"2") + sum(GetSpeciesCountAtDepths()$"10"))
-{
-  print("ERROR in GetSpeciesCountAtDepths: not all 863 individuals were seperated at their depths")
-}
-if (length(GetSpeciesCountAtDepths()$species_name) != 20)
-{
-  print("ERROR in GetSpeciesCountAtDepths: 20 species were scored at all depths")
-}
-if (length(GetSelectedSpecies()) != 8)
-{
-  print("ERROR in GetSelectedSpecies: 8 species were found at both depths, at each depth occurring at least thrice")
-}
-if (length(GetDataBenthosSelected()$species_name) != 740)
-{
-  print("ERROR in GetDataBenthosSelected: 740 individuals of the 8 selected species were scored at known depths")	
-}
-
-if (length(subset(CreateDataRedox(),depth_cm != 2 & depth_cm != 10)$depth_cm))
-{
-	print("ERROR in CreateDataRedox: only depths of 2 and 10 cm must be considered")
-}
-if (length(GetRedoxValues()) != 32)
-{
-	print("ERROR in GetRedoxValues: 32 redox potentials are investigated")	
-}
-if (length(GetDistances()) != 16)
-{
-	print("ERROR in GetDistances: 16 distances are investigated")		
-}
-
-if (length(subset(GetDataCombined(),species_name == "Hydrobia_ulvae")$species_name) != 294)
-{
-	print("ERROR in GetDataCombined: needs to be 1176 Hydrobia")
-	print(length(subset(GetDataCombined(),species_name == "Hydrobia_ulvae")$species_name))
-}
-
-if (length(subset(GetDataCombined(),species_name == "Nereis_diversicolor")$species_name) != 9)
-{
-	print("ERROR in GetDataCombined: needs to be 36 Nereis diversicolor")
-	print(length(subset(GetDataCombined(),species_name == "Nereis_diversicolor")$species_name))
-}
-
-if (length(GetRedoxesHydrobia()$redox_calib) != 294)
-{
-  print("Error in GetRedoxesHydrobia: must be 294 values")  	
-	print(length(GetRedoxesHydrobia()$redox_calib))
-}
-
-if (length(GetRedoxesNereis()$redox_calib) != 9)
-{
-	print("Error in GetRedoxesNereis: must be 9 values")
-	print(length(GetRedoxesNereis()$redox_calib))
-}
-
-if (length(TallySpeciesPerRedox()) != 9)
-{
-	print("ERROR in TallySpeciesPerRedox: must be 9 columns (redoxes and each species its frequency")
-	print(length(TallySpeciesPerRedox()))
-}
-if (length(TallySelectedSpeciesPerRedox()) != 3)
-{
-	print("ERROR in TallySelectedSpeciesPerRedox: must be 3 columns (redoxes, Hydrobia and Nereis")
-	print(length(TallySelectedSpeciesPerRedox()))
-}
-
-if (length(CalcOrderednessPerDistance()$dist_m) != 16)
-{
-	print("ERROR in CalcOrderednessPerDistance: must have 16 distances")
-}
-
+assert("CreateDataBenthos: 863 individuals were scored at known depths",length(CreateDataBenthos()$dist_m) == 863)
+assert("GetSpeciesCountAtDepths: All 863 individuals must be seperated correctly at their depths",length(CreateDataBenthos()$dist_m) 
+	== sum(GetSpeciesCountAtDepths()$"2") + sum(GetSpeciesCountAtDepths()$"10"))
+assert("GetSpeciesCountAtDepths: 20 species were scored at all depths",length(GetSpeciesCountAtDepths()$species_name) == 20)
+assert("GetSelectedSpecies: 8 species were found at both depths, at each depth occurring at least thrice",length(GetSelectedSpecies()) == 8)
+assert("GetDataBenthosSelected: 740 individuals of the 8 selected species were scored at known depths",length(GetDataBenthosSelected()$species_name) == 740)
+assert("CreateDataRedox must only consider depths of 2 and 10 cm",length(subset(CreateDataRedox(),depth_cm != 2 & depth_cm != 10)$depth_cm) == 0)
+assert("GetRedoxValues: 32 redox potentials are investigated",length(GetRedoxValues()) == 32)
+assert("GetDistances: 16 distances are investigated",length(GetDistances()) == 16)
+assert("GetDataCombined: needs to be 1176 Hydrobia",length(subset(GetDataCombined(),species_name == "Hydrobia_ulvae")$species_name) == 294)
+assert("GetDataCombined: needs to be 36 Nereis diversicolor",length(subset(GetDataCombined(),species_name == "Nereis_diversicolor")$species_name) == 9)
+assert("GetRedoxesHydrobia: must be 294 values",length(GetRedoxesHydrobia()$redox_calib) == 294)
+assert("GetRedoxesNereis: must be 9 values",length(GetRedoxesNereis()$redox_calib) == 9)
+assert("TallySpeciesPerRedox: must be 9 columns (redoxes and each species its frequency",length(TallySpeciesPerRedox()) == 9)
+assert("TallySelectedSpeciesPerRedox: must be 3 columns (redoxes, Hydrobia and Nereis",length(TallySelectedSpeciesPerRedox()) == 3)
+assert("CalcOrderednessPerDistance: must have 16 distances",length(CalcOrderednessPerDistance()$dist_m) == 16)
 
 write.csv(GetSpeciesCountAtDepths(),file="table_species_count_at_depth.csv")
 write.csv(GetSelectedSpecies(),file="table_selected_species.csv")
@@ -314,8 +271,8 @@ write.csv(TallySpeciesPerRedox(),file="table_redox_to_species.csv")
 write.csv(TallySelectedSpeciesPerRedox(),file="table_redox_to_selected_species.csv")
 
 #
-# Generate figure for species abundances
-#
+# Generate figure for species abundances for the range of redox potentials
+#   in two vertically aligned plots
 par(mfrow=c(2,1))
 plot(
 	Hydrobia_ulvae ~ redox_calib, 
@@ -341,15 +298,9 @@ plot(
 )
 par(mfrow=c(1,1))
 
-
-
-
-
-
-
-
 #
-# Plot two figures in the same plot
+# Generate figure for species abundances for the range of redox potentials
+#   in the same plot
 #
 par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for z axis
 plot(Hydrobia_ulvae ~ redox_calib, data = TallySpeciesPerRedox(), pch=19, axes=FALSE, xlab="Redox potential (mV)", ylab="", 
@@ -379,12 +330,6 @@ legend("topright",
   fill=c("blue","red"), 
 	cex = 0.75
 )
-
-
-
-
-
-
 
 
 # Redox potentials along the transect for the two depths
@@ -417,8 +362,3 @@ rm(dist_to_redox)
 rm(y_min)
 rm(y_max)
 rm(y_text)
-
-
-
-
-
