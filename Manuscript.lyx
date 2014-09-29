@@ -425,8 +425,8 @@ reference "fig:RedoxPerDistance"
 \end_layout
 
 \begin_layout Standard
-863 individuals of 18 different species were collected at the site (see
- figure 
+863 individuals of 18 different benthos species were collected at the site
+ (see figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "table_species_count_at_depth"
@@ -435,8 +435,8 @@ reference "table_species_count_at_depth"
 
 ).
  Of these species, 8 species had at least 3 individuals at both depths.
- Out of these 8 species, only 4 could be used, as not all sites had their
- redox potential measured.
+ Out of these 8 species, only 4 could be used, as not all sites were measured
+ for redox potential.
  From the 4 species left, only the 2 species occurring at multiple redox
  potentials were analyzed.
  These two species were 
