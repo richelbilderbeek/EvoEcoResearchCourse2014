@@ -38,7 +38,7 @@
 \use_esint 1
 \use_mhchem 1
 \use_mathdots 1
-\cite_engine natbib_authoryear
+\cite_engine basic
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -120,7 +120,17 @@ Number of words in abstract: 107
 \end_layout
 
 \begin_layout Standard
-Number of words in main text: 1053
+Number of words in main text: 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+!!!
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -227,23 +237,23 @@ Species composition is one of the first and most vital pieces of data a
  biological importance.
  Among others, redox potential can be a measure of oxygen in the soil, and
  it is known that plant roots can raise the oxygen level in the soil (and
- thus its redox potential) (
+ thus its redox potential) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Blossfeld2011"
 
 \end_inset
 
-).
+.
  This positive correlation, however, is not always correct, because at least
- one other study finds a negative correlation (
+ one other study finds a negative correlation 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Dong2014"
 
 \end_inset
 
-).
+.
  As far as I know, using redox potential as a predictor of bethos species
  being present or not, has not yet been investigated.
  
@@ -417,14 +427,14 @@ Statistics
 For each species, a Shapiro-Wilk normality test was used to determine if
  abundance is distributed normally around a certain redox potential.
  This test is chosen, as it has the best power for a given significance
- (
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Razali2011"
 
 \end_inset
 
-).
+.
 \end_layout
 
 \begin_layout Standard
@@ -545,14 +555,14 @@ As
 \shape italic
 Hydrobia ulvae
 \shape default
- is an epibenthic grazer (
+ is an epibenthic grazer 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Newell1965"
 
 \end_inset
 
-), it seems rather obvious that is not influenced by the oxygen level of
+, it seems rather obvious that is not influenced by the oxygen level of
  the soil underneath it.
  Less obvious is that individuals were found in benthos 5 cm below the surface.
  This finding appears not to be an experimental error, as 
@@ -572,14 +582,14 @@ Hydrobia ulvae
 \shape italic
 Nereis diversicolor
 \shape default
- creates burrows in the mud and is a predator and scavanger (
+ creates burrows in the mud and is a predator and scavanger 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Witte1979"
 
 \end_inset
 
-).
+.
  As it does not live in the soil itself, nor does it feed on something in
  the soil itself, it is not surprising that also this species is unaffected
  by soil redox potential.
