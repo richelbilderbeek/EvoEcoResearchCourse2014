@@ -66,6 +66,108 @@
 
 \begin_body
 
+\begin_layout Standard
+Title: Soil redox potential as a predictor of endobenthos species composition
+ in an intertidal zone
+\end_layout
+
+\begin_layout Standard
+Author: Richèl Bilderbeek, Community and Conservation Ecology, University
+ of Groningen, 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+r.j.c.bilderbeek@rug.nl
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Running title: Redox potential versus species composition
+\end_layout
+
+\begin_layout Standard
+Keywords: relation soil redox potential endobenthos benthos species composition
+ intertidal mudflat
+\end_layout
+
+\begin_layout Standard
+Type of article: Letter
+\end_layout
+
+\begin_layout Standard
+Number of words in abstract: 107
+\end_layout
+
+\begin_layout Standard
+Number of words in main text: 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+!!!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Number of words in text boxes: 0
+\end_layout
+
+\begin_layout Standard
+Number of references: 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+!!!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Number of figures: 2
+\end_layout
+
+\begin_layout Standard
+Number of tables: 3
+\end_layout
+
+\begin_layout Standard
+Correspondence address: Richèl Bilderbeek, COCON, P.O.
+ Box 11103, 9700 CC Groningen, University of Groningen, +31 50 363 6133,
+ 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+r.j.c.bilderbeek@rug.nl
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Title
 Soil redox potential as a predictor of endobenthos species composition in
  an intertidal zone
@@ -76,32 +178,13 @@ Richèl Bilderbeek
 \end_layout
 
 \begin_layout Abstract
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-maximally 200 words for the abstract
-\end_layout
-
-\end_inset
-
 Soil redox potential measurements can be done without much physical effort
  in a short amount of time, whereas measuring endobenthos species diversity
  involves more effort and time.
  This study explored if soil redox potential can be used as a sole predictor
  of the abundance of endobenthos.
  Both variables were measured at an intertidal zone at Schiermonnikoog at
- a transect from salt marsh to mudflat
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-at elevations from 270 to -80 cm NAP, at inundation times of 1 to 80 %
-\end_layout
-
-\end_inset
-
-.
+ a transect from salt marsh to mudflat.
  Inundation was expected to be influential in species composition, and to
  correct for this, species abundances and redox values were obtained from
  two depths at each site.
@@ -111,50 +194,6 @@ at elevations from 270 to -80 cm NAP, at inundation times of 1 to 80 %
 
 \begin_layout Section*
 Introduction
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Hypothesis-driven
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-EC/HO: 
-\begin_inset Quotes eld
-\end_inset
-
-Make sure to write a clear introduction that logically fits with the abstract
- that you wrote, that follows the "hourglass" structure.
- Keep for each section in the introduction approximately the same length
- as used in your example papers (use your outlines).
- Also include some references in your introduction.
-\begin_inset Quotes erd
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-maximum of 5000 words in length for the main text (introduction, methods,
- results and discussion, excluding the reference list, figure captions and
- tables
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -232,13 +271,13 @@ status open
 
 \begin_layout Standard
 The hypothesis tested is if soil redox potential can be used as a sole predictor
- of endobenthos species abundance, when assuming species distrubute themselves
+ of endobenthos species abundance, when assuming species distribute themselves
  normally around a certain redox potential.
- 
+ This study makes a strong case that this hypothesis should be rejected.
 \end_layout
 
 \begin_layout Section*
-Materials and method
+Material and methods
 \end_layout
 
 \begin_layout Standard
@@ -2716,39 +2755,71 @@ reference "tab:Orderedness"
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "1"
-key "RazaliAndWah2011"
+label "Blossfeld et al. 2011"
+key "BlossfeldEtAl2011"
 
 \end_inset
 
-
+Blossfeld, S.
+ Gansert, D.
+ Thiele, B.
+ Kuhn, AJ.
+ Lösch, R.
+ (2011).
+ The dynamics of oxygen concentration, pH value, and organic acids in the
+ rhizosphere of Juncus spp.
+ 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-You may use a citation manager if you have one running already.
- In that case make sure that the reference list and citations are formatted
- in the Ecology Letter style.
- Use Refworks or another citation manager for managing your references.
- 
-\end_layout
-
-\begin_layout Plain Layout
-Maximally 50 references
+Soil Biology & Biochemistry
 \end_layout
 
 \end_inset
 
-Razali, Nornadiah; Wah, Yap Bee (2011).
- Power comparisons of Shapiro–Wilk, Kolmogorov–Smirnov, Lilliefors and Anderson–
-Darling tests.
- Journal of Statistical Modeling and Analytics 2 (1): 21–33
+SOIL BIOL BIOCHEM 43:1186-1197
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+The intrusion of oxygen from the roots into the anaerobic environment will
+ raise the redox potential and thus, favor the oxidation of reduced iron.
+ 
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "2"
+label "Dong et al. 2014"
+key "DongEtAl2014"
+
+\end_inset
+
+Dong, B.
+ Han, R.
+ Wang, G.
+ Cao, X.
+ (2014).
+ O2, pH, and Redox Potential Microprofiles around 
+\shape italic
+Potamogeton malaianus
+\shape default
+ Measured Using Microsensors.
+ PLOS ONE.
+ 9(7): e101825.
+ doi:10.1371/journal.pone.0101825.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Newell 1965"
 key "Newell1965"
 
 \end_inset
@@ -2765,22 +2836,31 @@ Hydrobia ulvae
 Macoma balthica
 \shape default
 .
- Proc.
- zool.
- Soc.
- Lond.
- 144, 25-45 
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+PROCEEDINGS OF THE ZOOLOGICAL SOCIETY OF LONDON
+\end_layout
+
+\end_inset
+
+P ZOOL SOC LOND.
+ 144.
+ 25-45.
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "3"
+label "Rauschenplat 1901"
 key "Rauschenplat1901"
 
 \end_inset
 
-Rauschenplat, E (1901).
+Rauschenplat, E.
+ (1901).
  Ueber die Nahrung von Thierer
 \begin_inset Note Note
 status collapsed
@@ -2792,65 +2872,94 @@ Yes, 'Tierer' with an 'h' after the 't'
 \end_inset
 
  aus der Kielerbucht.
- Wiss.
- Meeresunters.
- 5(2):85-151.
  
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "4"
-key "BlossfeldEtAl2011"
-
-\end_inset
-
-Blossfeld, S; Gansert, D; Thiele B; Kuhn AJ; Lösch R (2011).
- The dynamics of oxygen concentration, pH value, and organic acids in the
- rhizosphere of Juncus spp.
- Soil Biology & Biochemistry 43:1186-1197
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-The intrusion of oxygen from the roots into the anaerobic environment will
- raise the redox potential and thus, favor the oxidation of reduced iron.
+Helgolander Wiss.
+ Meeresunters.
+\end_layout
+
+\end_inset
+
+HELGOLAND WISS MEER, 5(2), 85-151.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Razali \\&{} Wah 2011"
+key "RazaliAndWah2011"
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+You may use a citation manager if you have one running already.
+ In that case make sure that the reference list and citations are formatted
+ in the Ecology Letter style.
+ Use Refworks or another citation manager for managing your references.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Maximally 50 references
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Last name, Initials.
+ et al.
+ (Year).
+ Full title of article.
+ Abbreviated journal title (standard abbreviations), Volume number, page
+ range.
  
 \end_layout
 
 \end_inset
 
+Razali, Nornadiah.
+ Wah, Yap Bee.
+ (2011).
+ Power comparisons of Shapiro–Wilk, Kolmogorov–Smirnov, Lilliefors and Anderson–
+Darling tests.
+ 
+\begin_inset Note Note
+status collapsed
 
+\begin_layout Plain Layout
+Journal of Statistical Modeling and Analytics
 \end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "5"
-key "DongEtAl2014"
 
 \end_inset
 
-Dong, B; Han, R; Wang, G; Cao, X (2014).
- O2, pH, and Redox Potential Microprofiles around 
-\shape italic
-Potamogeton malaianus
-\shape default
- Measured Using Microsensors.
- PLoS ONE 9(7): e101825.
- doi:10.1371/journal.pone.0101825
+JOSMA.
+ 2 (1).
+ 21–33.
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "6"
+label "Witte \\&{} Wilde 1979"
 key "WitteAndWilde1979"
 
 \end_inset
 
-Witte, F; Wilde, de, PAWJ (1979).
+Witte, F.
+ Wilde, de, P.A.W.J.
+ (1979).
  On the ecological relation between 
 \shape italic
 Nereis diversicolor
@@ -2860,7 +2969,19 @@ Nereis diversicolor
 Arenicola marina
 \shape default
 .
- Netherlands Journal of Sea Research 13(3/4): 394-405
+ 
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Netherlands Journal of Sea Research
+\end_layout
+
+\end_inset
+
+NETH J SEA RES.
+ 13(3/4).
+ 394-405.
 \end_layout
 
 \begin_layout Subsection*
