@@ -67,6 +67,22 @@
 \begin_body
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Title: Soil redox potential as a predictor of endobenthos species composition
  in an intertidal zone
 \end_layout
@@ -164,6 +180,18 @@ Soil redox potential as a predictor of endobenthos species composition in
 \end_layout
 
 \begin_layout Author
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{page}{1}
+\end_layout
+
+\end_inset
+
 Richèl Bilderbeek
 \end_layout
 
