@@ -21,12 +21,11 @@
 # * Couple deep (5-20 cm) benthos abundances with redox measurement of 10 cm
 # Answer: 
 # * No 
-rm(list = ls())
 
+rm(list = ls())
 setwd("~/GitHubs/EvoEcoResearchCourse2014")
 library(reshape2)
 library(testit)
-
 
 # Create benthos data as such:
 #  dist_m depth_cm species_name
@@ -51,8 +50,6 @@ CreateDataBenthos <- function()
 	levels(data_benthos$depth_cm) <- c(2,10)
 	data_benthos
 }
-
-#data_benthos <- CreateDataBenthos()
 
 # Count the species occurring at two depths
 # species_name      2  10
@@ -215,10 +212,10 @@ CalcOrderednessPerDistance <- function()
 	orderedness_per_distance <- data.frame(dist_m = numeric(),order = factor())
 	for (i in GetDistances())
 	{
-		data <- subset(CreateDataRedoxAll(),dist_m == i)
-		low <- subset(data,depth_cm == 2)$redox_calib
-		mid <- subset(data,depth_cm == 5)$redox_calib
-		high <- subset(data,depth_cm == 10)$redox_calib
+    data <- subset(CreateDataRedoxAll(),dist_m == i)
+    low <- subset(data,depth_cm == 2)$redox_calib
+    mid <- subset(data,depth_cm == 5)$redox_calib
+    high <- subset(data,depth_cm == 10)$redox_calib
 	  if (low < mid && mid < high) 
 	  { 
 	  	orderedness_per_distance <- rbind(orderedness_per_distance,data.frame(dist_m = i,order = "LTH"))
@@ -233,8 +230,7 @@ CalcOrderednessPerDistance <- function()
 }
 
 assert("CreateDataBenthos: 863 individuals were scored at known depths",length(CreateDataBenthos()$dist_m) == 863)
-assert("GetSpeciesCountAtDepths: All 863 individuals must be seperated correctly at their depths",length(CreateDataBenthos()$dist_m) 
-	== sum(GetSpeciesCountAtDepths()$"2") + sum(GetSpeciesCountAtDepths()$"10"))
+assert("GetSpeciesCountAtDepths: All 863 individuals must be seperated correctly at their depths",length(CreateDataBenthos()$dist_m) == sum(GetSpeciesCountAtDepths()$"2") + sum(GetSpeciesCountAtDepths()$"10"))
 assert("GetSpeciesCountAtDepths: 20 species were scored at all depths",length(GetSpeciesCountAtDepths()$species_name) == 20)
 assert("GetSelectedSpecies: 8 species were found at both depths, at each depth occurring at least thrice",length(GetSelectedSpecies()) == 8)
 assert("GetDataBenthosSelected: 740 individuals of the 8 selected species were scored at known depths",length(GetDataBenthosSelected()$species_name) == 740)
@@ -266,11 +262,9 @@ shapiro.test(GetRedoxesNereis()$redox_calib)
 # data:  redoxes_nereis$redox_calib
 # W = 0.8341, p-value = 0.04965
 
-
 write.csv(TallySpeciesPerRedox(),file="table_redox_to_species.csv")
 write.csv(TallySelectedSpeciesPerRedox(),file="table_redox_to_selected_species.csv")
 
-#
 # Generate figure for species abundances for the range of redox potentials
 #   in two vertically aligned plots
 par(mfrow=c(2,1))
@@ -284,7 +278,6 @@ plot(
 	xlab = "Redox potential (mV)",
 	ylab = "Number of individuals"
 )
-
 plot(
 	Nereis_diversicolor ~ redox_calib, 
 	data = TallySpeciesPerRedox(), 
@@ -298,10 +291,8 @@ plot(
 )
 par(mfrow=c(1,1))
 
-#
 # Generate figure for species abundances for the range of redox potentials
 #   in the same plot
-#
 par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for z axis
 plot(Hydrobia_ulvae ~ redox_calib, data = TallySpeciesPerRedox(), pch=19, axes=FALSE, xlab="Redox potential (mV)", ylab="", 
    type="b",col="blue", main="Species abundandances\nfor different redox potentials"
@@ -331,7 +322,6 @@ legend("topright",
 	cex = 0.75
 )
 
-
 # Redox potentials along the transect for the two depths
 dist_to_redox <- subset(CreateDataRedox(), CreateDataRedox()$dist_m %in% GetDistances())
 y_min <- min(dist_to_redox$redox_calib) - 100
@@ -353,7 +343,6 @@ text((1125 + 150) / 2,y_text,"Salt\nmarsh")
 text((1900 + 1125) / 2,y_text,"Mud\nflat")
 text((2225 + 1900) / 2,y_text,"Mussel\nbed")
 text(-50 + ((2600 + 2225) / 2),y_text,"Mud\nflat")
-
 legend("bottomleft",
   inset=0.05,title = "Sampling depth", c("2 cm", "10 cm"),horiz=TRUE,
   fill=c(1,2,3), cex = 1.0

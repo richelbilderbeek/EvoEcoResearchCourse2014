@@ -60,8 +60,8 @@
 \begin_body
 
 \begin_layout Title
-Soil redox potential as a predictor of benthos species composition in an
- intertidal zone
+Soil redox potential as a predictor of endobenthos species composition in
+ an intertidal zone
 \end_layout
 
 \begin_layout Author
@@ -79,10 +79,10 @@ maximally 200 words for the abstract
 \end_inset
 
 Soil redox potential measurements can be done without much physical effort
- in a short amount of time, whereas measuring benthos species diversity
+ in a short amount of time, whereas measuring endobenthos species diversity
  involves more effort and time.
  This study explored if soil redox potential can be used as a sole predictor
- of the abundance of benthos species.
+ of the abundance of endobenthos.
  Both variables were measured at an intertidal zone at Schiermonnikoog at
  a transect from salt marsh to mudflat
 \begin_inset Note Note
@@ -96,16 +96,16 @@ at elevations from 270 to -80 cm NAP, at inundation times of 1 to 80 %
 
 .
  Inundation was expected to be influential in species composition, and to
- correct for this, benthos species and redox values were obtained from two
- depths at each site.
+ correct for this, species abundances and redox values were obtained from
+ two depths at each site.
  It was found that redox potential alone cannot be used as predictor of
- species composition.
+ endobenthos composition.
 \end_layout
 
 \begin_layout Section*
 Introduction
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Hypothesis-driven
@@ -191,10 +191,22 @@ key "DongEtAl2014"
 \end_inset
 
 .
- As far as I know, using redox potential as a predictor of species being
- present or not, has not yet been investigated.
- It might be so, because no relation is expected.
- Would this relation be found, those expectations were incorrect.
+ As far as I know, using redox potential as a predictor of bethos species
+ being present or not, has not yet been investigated.
+ 
+\end_layout
+
+\begin_layout Standard
+As redox potential is positively correlated with soil oxygen concentration,
+ and all animals need oxygen for respiration, I expect some benthos animals
+ to respond to soil redox potential.
+ The most likely candidates are animals that live in the soil and breathe
+ through their skin, as these animals might choke from a too low oxygen
+ concentration and will probably move to a habitat with a higher oxygen
+ concentration instead.
+ Additionally, it might be that microbenthos serving as prey aggregrates
+ at a certain oxygen concentration, which might cause its predator to follow
+ this distribution.
 \end_layout
 
 \begin_layout Standard
@@ -212,10 +224,10 @@ status open
 \end_layout
 
 \begin_layout Standard
-This study investigates if soil redox potential can be used as a sole predictor
- of benthos species abundance.
- Or: would it be that some species abundances are distributed normally around
- a certain redox potential?
+The hypothesis tested is if soil redox potential can be used as a sole predictor
+ of endobenthos species abundance, when assuming species distrubute themselves
+ normally around a certain redox potential.
+ 
 \end_layout
 
 \begin_layout Section*
@@ -379,7 +391,7 @@ R
 The script to analyze the data is written in R and can be downloaded at
  
 \begin_inset Flex URL
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -388,7 +400,7 @@ https://github.com/richelbilderbeek/EvoEcoResearchCourse2014
 
 \end_inset
 
-.
+, or viewed in the appendix.
 \end_layout
 
 \begin_layout Section*
@@ -2842,6 +2854,1832 @@ Arenicola marina
 \shape default
 .
  Netherlands Journal of Sea Research 13(3/4): 394-405
+\end_layout
+
+\begin_layout Subsection*
+Appendix
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\tiny},breaklines=true,tabsize=2"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# Manuscript, script to generate figures and tables for the Evolution &
+ Ecology Research course 2014
+\end_layout
+
+\begin_layout Plain Layout
+
+# Copyright (C) 2014 Richel Bilderbeek
+\end_layout
+
+\begin_layout Plain Layout
+
+# 
+\end_layout
+
+\begin_layout Plain Layout
+
+# This program is free software: you can redistribute it and/or modify
+\end_layout
+
+\begin_layout Plain Layout
+
+# it under the terms of the GNU General Public License as published by
+\end_layout
+
+\begin_layout Plain Layout
+
+# the Free Software Foundation, either version 3 of the License, or
+\end_layout
+
+\begin_layout Plain Layout
+
+# (at your option) any later version.
+\end_layout
+
+\begin_layout Plain Layout
+
+# 
+\end_layout
+
+\begin_layout Plain Layout
+
+# This program is distributed in the hope that it will be useful,
+\end_layout
+
+\begin_layout Plain Layout
+
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+\end_layout
+
+\begin_layout Plain Layout
+
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+\end_layout
+
+\begin_layout Plain Layout
+
+# GNU General Public License for more details.
+\end_layout
+
+\begin_layout Plain Layout
+
+# You should have received a copy of the GNU General Public License
+\end_layout
+
+\begin_layout Plain Layout
+
+# along with this program.If not, see <http://www.gnu.org/licenses/>.
+\end_layout
+
+\begin_layout Plain Layout
+
+#
+\end_layout
+
+\begin_layout Plain Layout
+
+# File can be downloaded from https://github.com/richelbilderbeek/EvoEcoResearchC
+ourse2014
+\end_layout
+
+\begin_layout Plain Layout
+
+#
+\end_layout
+
+\begin_layout Plain Layout
+
+# Research question: Can I predict where species are from a redox potential?
+\end_layout
+
+\begin_layout Plain Layout
+
+# Experiment: 
+\end_layout
+
+\begin_layout Plain Layout
+
+# * Couple shallow (0-5 cm) benthos abundances with redox measurement of
+ 2 cm
+\end_layout
+
+\begin_layout Plain Layout
+
+# * Couple deep (5-20 cm) benthos abundances with redox measurement of 10
+ cm
+\end_layout
+
+\begin_layout Plain Layout
+
+# Answer: 
+\end_layout
+
+\begin_layout Plain Layout
+
+# * No 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+rm(list = ls())
+\end_layout
+
+\begin_layout Plain Layout
+
+setwd("~/GitHubs/EvoEcoResearchCourse2014")
+\end_layout
+
+\begin_layout Plain Layout
+
+library(reshape2)
+\end_layout
+
+\begin_layout Plain Layout
+
+library(testit)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Create benthos data as such:
+\end_layout
+
+\begin_layout Plain Layout
+
+#  dist_m depth_cm species_name
+\end_layout
+
+\begin_layout Plain Layout
+
+#  2350   2        Bathyporeia_spec.
+\end_layout
+
+\begin_layout Plain Layout
+
+#  2400   10       Nereis_diversicolor
+\end_layout
+
+\begin_layout Plain Layout
+
+# Removes species at unknown depths
+\end_layout
+
+\begin_layout Plain Layout
+
+CreateDataBenthos <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_benthos <- read.table("benthos_species_diversity.csv",header=TRUE,sep=",")
+\end_layout
+
+\begin_layout Plain Layout
+
+	#Remove useless columns
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_benthos <-data_benthos[ c("dist_m","soil_layer","species_name") ]
+\end_layout
+
+\begin_layout Plain Layout
+
+	# Only keep rows with 'D' or 'S' (for deep and shallow/top part of the
+ core)
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_benthos<-data_benthos[data_benthos$soil_layer != "U" & data_benthos$soil_l
+ayer != "?", ]
+\end_layout
+
+\begin_layout Plain Layout
+
+	# Drop the unneeded levels 
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_benthos$soil_layer <- droplevels(data_benthos$soil_layer)
+\end_layout
+
+\begin_layout Plain Layout
+
+	#Of data_benthod, change the column 'soil_layer' to 'depth_cm': 
+\end_layout
+
+\begin_layout Plain Layout
+
+	# if soil_layer == "S" -> depth_cm = 2
+\end_layout
+
+\begin_layout Plain Layout
+
+	# if soil_layer == "D" -> depth_cm = 10
+\end_layout
+
+\begin_layout Plain Layout
+
+	names(data_benthos) <- c("dist_m","depth_cm","species_name")
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_benthos$depth_cm <- as.factor(data_benthos$depth_cm)
+\end_layout
+
+\begin_layout Plain Layout
+
+	# Rename the levels
+\end_layout
+
+\begin_layout Plain Layout
+
+	levels(data_benthos$depth_cm) <- c(2,10)
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_benthos
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Count the species occurring at two depths
+\end_layout
+
+\begin_layout Plain Layout
+
+# species_name      2  10
+\end_layout
+
+\begin_layout Plain Layout
+
+# Arenicola_marina  12  1
+\end_layout
+
+\begin_layout Plain Layout
+
+# Bathyporeia_spec.
+ 2   0
+\end_layout
+
+\begin_layout Plain Layout
+
+GetSpeciesCountAtDepths <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	species_to_depth <- dcast(
+\end_layout
+
+\begin_layout Plain Layout
+
+		CreateDataBenthos(),
+\end_layout
+
+\begin_layout Plain Layout
+
+		species_name ~ depth_cm,
+\end_layout
+
+\begin_layout Plain Layout
+
+		value.var = "species_name",
+\end_layout
+
+\begin_layout Plain Layout
+
+		fill = 0, 
+\end_layout
+
+\begin_layout Plain Layout
+
+		fun.aggregate=length # fun.aggregate may also be mean
+\end_layout
+
+\begin_layout Plain Layout
+
+	) 
+\end_layout
+
+\begin_layout Plain Layout
+
+	species_to_depth
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Obtain the species names occuring at least thrice in both of the two depths
+ in the soil
+\end_layout
+
+\begin_layout Plain Layout
+
+# Will be this:
+\end_layout
+
+\begin_layout Plain Layout
+
+# [1] Carcinus_maenas     Cerastoderma_edule  Crassostrea_gigas   Hemigropsus_ta
+kanoi Hydrobia_ulvae     
+\end_layout
+
+\begin_layout Plain Layout
+
+# [6] Littorina_littorea  Mytilus_edulis      Nereis_diversicolor
+\end_layout
+
+\begin_layout Plain Layout
+
+# 8 Levels: Carcinus_maenas Cerastoderma_edule Crassostrea_gigas Hemigropsus_tak
+anoi ...
+ Nereis_diversicolor
+\end_layout
+
+\begin_layout Plain Layout
+
+GetSelectedSpecies <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	species_to_depth <- GetSpeciesCountAtDepths()
+\end_layout
+
+\begin_layout Plain Layout
+
+	selected_species_to_depth <- subset(species_to_depth,
+\end_layout
+
+\begin_layout Plain Layout
+
+		  species_to_depth$"2" > 2 & species_to_depth$"10" > 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+	selected_species_to_depth <- droplevels(selected_species_to_depth)
+\end_layout
+
+\begin_layout Plain Layout
+
+	# Collect all species' names
+\end_layout
+
+\begin_layout Plain Layout
+
+	species_list <- levels(selected_species_to_depth$species_name)
+\end_layout
+
+\begin_layout Plain Layout
+
+	selected_species <- selected_species_to_depth$species_name
+\end_layout
+
+\begin_layout Plain Layout
+
+	selected_species <- droplevels(selected_species)
+\end_layout
+
+\begin_layout Plain Layout
+
+	selected_species
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+GetDataBenthosSelected <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  data_benthos <- CreateDataBenthos()
+\end_layout
+
+\begin_layout Plain Layout
+
+	selected_species <- GetSelectedSpecies()
+\end_layout
+
+\begin_layout Plain Layout
+
+  #data_benthos_selected <- data_benthos[ data_benthos$species_name %in%
+ selected_species,]
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_benthos_selected <- data_benthos[ data_benthos$species_name %in% GetSelect
+edSpecies(),]
+\end_layout
+
+\begin_layout Plain Layout
+
+  data_benthos_selected
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Prepare the redox data
+\end_layout
+
+\begin_layout Plain Layout
+
+# dist_m depth_cm replicate redox_calib
+\end_layout
+
+\begin_layout Plain Layout
+
+# 220    2        1         304.89200
+\end_layout
+
+\begin_layout Plain Layout
+
+# 220    2        2         302.63036
+\end_layout
+
+\begin_layout Plain Layout
+
+CreateDataRedox <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{	
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox <- read.table("Redox.csv",header=TRUE,sep="
+\backslash
+t")
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox <- subset(data_redox,depth_cm != 5)
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox
+\end_layout
+
+\begin_layout Plain Layout
+
+	#Remove the replicate column
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox <- data_redox[c("dist_m","depth_cm","redox_calib") ]
+\end_layout
+
+\begin_layout Plain Layout
+
+	# Take the average redox values, so that every distance and depth has a
+ single redox value
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox <- aggregate(data_redox,list(data_redox$depth_cm,data_redox$dist_m),
+mean)
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox <- data_redox[c("dist_m","depth_cm","redox_calib") ]
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CreateDataRedoxAll <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{	
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox <- read.table("Redox.csv",header=TRUE,sep="
+\backslash
+t")
+\end_layout
+
+\begin_layout Plain Layout
+
+	#Remove the replicate column
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox <- data_redox[c("dist_m","depth_cm","redox_calib") ]
+\end_layout
+
+\begin_layout Plain Layout
+
+	# Take the average redox values, so that every distance and depth has a
+ single redox value
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox <- aggregate(data_redox,list(data_redox$depth_cm,data_redox$dist_m),
+mean)
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox <- data_redox[c("dist_m","depth_cm","redox_calib") ]
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+GetRedoxPerDistance <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{	
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox <- read.table("Redox.csv",header=TRUE,sep="
+\backslash
+t")
+\end_layout
+
+\begin_layout Plain Layout
+
+	#Remove the replicate column
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox <- data_redox[c("dist_m","depth_cm","redox_calib") ]
+\end_layout
+
+\begin_layout Plain Layout
+
+	# Take the average redox values, so that every distance and depth has a
+ single redox value
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox <- aggregate(data_redox,list(data_redox$depth_cm,data_redox$dist_m),
+mean)
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox <- data_redox[c("dist_m","depth_cm","redox_calib") ]
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_redox
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Get the 32 redox values used in this study
+\end_layout
+
+\begin_layout Plain Layout
+
+# [1] -987.68238 -857.44961 -834.07933 -811.22734 -750.16306 -742.48291 -699.70022
+ -616.30224 -577.85436 -528.05116
+\end_layout
+
+\begin_layout Plain Layout
+
+# ...
+\end_layout
+
+\begin_layout Plain Layout
+
+# [31]  350.83156  370.14974
+\end_layout
+
+\begin_layout Plain Layout
+
+GetRedoxValues <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	redox_values <- subset(CreateDataRedox(),select="redox_calib")
+\end_layout
+
+\begin_layout Plain Layout
+
+	redox_values <- unique(redox_values)
+\end_layout
+
+\begin_layout Plain Layout
+
+	redox_values <- sort(redox_values$redox_calib)
+\end_layout
+
+\begin_layout Plain Layout
+
+	redox_values
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Obtain the distances of all redox sites
+\end_layout
+
+\begin_layout Plain Layout
+
+#  [1]  220  250  300  350  400  500 1000 1150 1400 1600 1800 1970 2250
+ 2300 2350 2400
+\end_layout
+
+\begin_layout Plain Layout
+
+GetDistances <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	distances <- subset(CreateDataRedox(),select="dist_m")
+\end_layout
+
+\begin_layout Plain Layout
+
+	distances <- unique(distances)
+\end_layout
+
+\begin_layout Plain Layout
+
+	distances <- sort(distances$dist_m)
+\end_layout
+
+\begin_layout Plain Layout
+
+	distances
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Get all species per redox potential
+\end_layout
+
+\begin_layout Plain Layout
+
+# redox_calib   species_name
+\end_layout
+
+\begin_layout Plain Layout
+
+# -78.26751 Hydrobia_ulvae
+\end_layout
+
+\begin_layout Plain Layout
+
+# -78.26751 Hydrobia_ulvae
+\end_layout
+
+\begin_layout Plain Layout
+
+GetDataCombined <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_combined <- merge(CreateDataRedox(),GetDataBenthosSelected(),by=c("dist_m"
+,"depth_cm"),all=FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_combined$species_name <- droplevels(data_combined$species_name)
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_combined <- data_combined[ c("redox_calib","species_name") ]
+\end_layout
+
+\begin_layout Plain Layout
+
+	data_combined
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Get the redox potentials of Hydrobia
+\end_layout
+
+\begin_layout Plain Layout
+
+# [1] -78.26751 -78.26751 -78.26751 -78.26751 -78.26751 -78.26751 -78.26751 -78.26751
+ -78.26751 -78.26751
+\end_layout
+
+\begin_layout Plain Layout
+
+GetRedoxesHydrobia <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  redoxes_hydrobia <- subset(GetDataCombined(),species_name == "Hydrobia_ulvae")
+\end_layout
+
+\begin_layout Plain Layout
+
+  redoxes_hydrobia <- subset(redoxes_hydrobia,select=c("redox_calib"))
+\end_layout
+
+\begin_layout Plain Layout
+
+  redoxes_hydrobia
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+GetRedoxesNereis <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+  redoxes_nereis <- subset(GetDataCombined(),species_name == "Nereis_diversicolo
+r")
+\end_layout
+
+\begin_layout Plain Layout
+
+  redoxes_nereis <- subset(redoxes_nereis,select=c("redox_calib"))
+\end_layout
+
+\begin_layout Plain Layout
+
+	redoxes_nereis
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+TallySpeciesPerRedox <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	redox_to_species <- dcast(
+\end_layout
+
+\begin_layout Plain Layout
+
+		GetDataCombined(),
+\end_layout
+
+\begin_layout Plain Layout
+
+		redox_calib ~ species_name,
+\end_layout
+
+\begin_layout Plain Layout
+
+		value.var = "species_name",
+\end_layout
+
+\begin_layout Plain Layout
+
+		fill = 0, 
+\end_layout
+
+\begin_layout Plain Layout
+
+		fun.aggregate=length # fun.aggregate may also be mean
+\end_layout
+
+\begin_layout Plain Layout
+
+	) 
+\end_layout
+
+\begin_layout Plain Layout
+
+	redox_calib <- redox_to_species$redox_calib
+\end_layout
+
+\begin_layout Plain Layout
+
+	# Note that not all species are present anymore that often.
+ This is due to that not all distances are redoxed
+\end_layout
+
+\begin_layout Plain Layout
+
+	redox_to_species
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+TallySelectedSpeciesPerRedox <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	redox_to_species <- TallySpeciesPerRedox()
+\end_layout
+
+\begin_layout Plain Layout
+
+	redox_to_species <- redox_to_species[, colSums(redox_to_species) > 6]
+\end_layout
+
+\begin_layout Plain Layout
+
+	redox_to_species <- cbind(TallySpeciesPerRedox(),redox_to_species)
+\end_layout
+
+\begin_layout Plain Layout
+
+	redox_to_species <- redox_to_species[, c("redox_calib","Hydrobia_ulvae","Nereis
+_diversicolor")]
+\end_layout
+
+\begin_layout Plain Layout
+
+	redox_to_species
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Can the redox potentials at a certain distane be assumed to be linear
+ at a certain depth?
+\end_layout
+
+\begin_layout Plain Layout
+
+CalcOrderednessPerDistance <- function()
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	orderedness_per_distance <- data.frame(dist_m = numeric(),order = factor())
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (i in GetDistances())
+\end_layout
+
+\begin_layout Plain Layout
+
+	{
+\end_layout
+
+\begin_layout Plain Layout
+
+    data <- subset(CreateDataRedoxAll(),dist_m == i)
+\end_layout
+
+\begin_layout Plain Layout
+
+    low <- subset(data,depth_cm == 2)$redox_calib
+\end_layout
+
+\begin_layout Plain Layout
+
+    mid <- subset(data,depth_cm == 5)$redox_calib
+\end_layout
+
+\begin_layout Plain Layout
+
+    high <- subset(data,depth_cm == 10)$redox_calib
+\end_layout
+
+\begin_layout Plain Layout
+
+	  if (low < mid && mid < high) 
+\end_layout
+
+\begin_layout Plain Layout
+
+	  { 
+\end_layout
+
+\begin_layout Plain Layout
+
+	  	orderedness_per_distance <- rbind(orderedness_per_distance,data.frame(dist_m
+ = i,order = "LTH"))
+\end_layout
+
+\begin_layout Plain Layout
+
+	  } else if(low > mid && mid > high) 
+\end_layout
+
+\begin_layout Plain Layout
+
+	  { 
+\end_layout
+
+\begin_layout Plain Layout
+
+	  	orderedness_per_distance <- rbind(orderedness_per_distance,data.frame(dist_m
+ = i, order = "HTL"))
+\end_layout
+
+\begin_layout Plain Layout
+
+	  } else  { 
+\end_layout
+
+\begin_layout Plain Layout
+
+	  	orderedness_per_distance <- rbind(orderedness_per_distance,data.frame(dist_m
+ = i, order = "UNO"))
+\end_layout
+
+\begin_layout Plain Layout
+
+	  }
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	orderedness_per_distance
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("CreateDataBenthos: 863 individuals were scored at known depths",length(C
+reateDataBenthos()$dist_m) == 863)
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("GetSpeciesCountAtDepths: All 863 individuals must be seperated correctly
+ at their depths",length(CreateDataBenthos()$dist_m) == sum(GetSpeciesCountAtDep
+ths()$"2") + sum(GetSpeciesCountAtDepths()$"10"))
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("GetSpeciesCountAtDepths: 20 species were scored at all depths",length(Ge
+tSpeciesCountAtDepths()$species_name) == 20)
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("GetSelectedSpecies: 8 species were found at both depths, at each
+ depth occurring at least thrice",length(GetSelectedSpecies()) == 8)
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("GetDataBenthosSelected: 740 individuals of the 8 selected species
+ were scored at known depths",length(GetDataBenthosSelected()$species_name)
+ == 740)
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("CreateDataRedox must only consider depths of 2 and 10 cm",length(subset(
+CreateDataRedox(),depth_cm != 2 & depth_cm != 10)$depth_cm) == 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("GetRedoxValues: 32 redox potentials are investigated",length(GetRedoxVal
+ues()) == 32)
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("GetDistances: 16 distances are investigated",length(GetDistances())
+ == 16)
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("GetDataCombined: needs to be 1176 Hydrobia",length(subset(GetDataCombine
+d(),species_name == "Hydrobia_ulvae")$species_name) == 294)
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("GetDataCombined: needs to be 36 Nereis diversicolor",length(subset(GetDa
+taCombined(),species_name == "Nereis_diversicolor")$species_name) == 9)
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("GetRedoxesHydrobia: must be 294 values",length(GetRedoxesHydrobia()$redo
+x_calib) == 294)
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("GetRedoxesNereis: must be 9 values",length(GetRedoxesNereis()$redox_cali
+b) == 9)
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("TallySpeciesPerRedox: must be 9 columns (redoxes and each species
+ its frequency",length(TallySpeciesPerRedox()) == 9)
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("TallySelectedSpeciesPerRedox: must be 3 columns (redoxes, Hydrobia
+ and Nereis",length(TallySelectedSpeciesPerRedox()) == 3)
+\end_layout
+
+\begin_layout Plain Layout
+
+assert("CalcOrderednessPerDistance: must have 16 distances",length(CalcOrderedne
+ssPerDistance()$dist_m) == 16)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+write.csv(GetSpeciesCountAtDepths(),file="table_species_count_at_depth.csv")
+\end_layout
+
+\begin_layout Plain Layout
+
+write.csv(GetSelectedSpecies(),file="table_selected_species.csv")
+\end_layout
+
+\begin_layout Plain Layout
+
+write.csv(CalcOrderednessPerDistance(),file="table_orderedness_per_distance.csv")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Do statistics per species
+\end_layout
+
+\begin_layout Plain Layout
+
+shapiro.test(GetRedoxesHydrobia()$redox_calib)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Shapiro-Wilk normality test
+\end_layout
+
+\begin_layout Plain Layout
+
+# 
+\end_layout
+
+\begin_layout Plain Layout
+
+# data:  redoxes_hydrobia$redox_calib
+\end_layout
+
+\begin_layout Plain Layout
+
+# W = 0.7567, p-value < 2.2e-16
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+shapiro.test(GetRedoxesNereis()$redox_calib)
+\end_layout
+
+\begin_layout Plain Layout
+
+# Shapiro-Wilk normality test
+\end_layout
+
+\begin_layout Plain Layout
+
+# 
+\end_layout
+
+\begin_layout Plain Layout
+
+# data:  redoxes_nereis$redox_calib
+\end_layout
+
+\begin_layout Plain Layout
+
+# W = 0.8341, p-value = 0.04965
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+write.csv(TallySpeciesPerRedox(),file="table_redox_to_species.csv")
+\end_layout
+
+\begin_layout Plain Layout
+
+write.csv(TallySelectedSpeciesPerRedox(),file="table_redox_to_selected_species.csv
+")
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Generate figure for species abundances for the range of redox potentials
+\end_layout
+
+\begin_layout Plain Layout
+
+#   in two vertically aligned plots
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mfrow=c(2,1))
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(
+\end_layout
+
+\begin_layout Plain Layout
+
+	Hydrobia_ulvae ~ redox_calib, 
+\end_layout
+
+\begin_layout Plain Layout
+
+	data = TallySpeciesPerRedox(), 
+\end_layout
+
+\begin_layout Plain Layout
+
+	t = "b", 
+\end_layout
+
+\begin_layout Plain Layout
+
+	pch = 19, 
+\end_layout
+
+\begin_layout Plain Layout
+
+	col = "black",
+\end_layout
+
+\begin_layout Plain Layout
+
+	main = "Hydrobia ulvae abundance",
+\end_layout
+
+\begin_layout Plain Layout
+
+	xlab = "Redox potential (mV)",
+\end_layout
+
+\begin_layout Plain Layout
+
+	ylab = "Number of individuals"
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(
+\end_layout
+
+\begin_layout Plain Layout
+
+	Nereis_diversicolor ~ redox_calib, 
+\end_layout
+
+\begin_layout Plain Layout
+
+	data = TallySpeciesPerRedox(), 
+\end_layout
+
+\begin_layout Plain Layout
+
+	t = "b", 
+\end_layout
+
+\begin_layout Plain Layout
+
+	pch = 19, 
+\end_layout
+
+\begin_layout Plain Layout
+
+	col = "black",
+\end_layout
+
+\begin_layout Plain Layout
+
+	main = "Nereis diversicolor abundance",
+\end_layout
+
+\begin_layout Plain Layout
+
+	xlab = "Redox potential (mV)",
+\end_layout
+
+\begin_layout Plain Layout
+
+	ylab = "Number of individuals",
+\end_layout
+
+\begin_layout Plain Layout
+
+	ylim = c(0,4)
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mfrow=c(1,1))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Generate figure for species abundances for the range of redox potentials
+\end_layout
+
+\begin_layout Plain Layout
+
+#   in the same plot
+\end_layout
+
+\begin_layout Plain Layout
+
+par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for z axis
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(Hydrobia_ulvae ~ redox_calib, data = TallySpeciesPerRedox(), pch=19,
+ axes=FALSE, xlab="Redox potential (mV)", ylab="", 
+\end_layout
+
+\begin_layout Plain Layout
+
+   type="b",col="blue", main="Species abundandances
+\backslash
+nfor different redox potentials"
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+axis(1, col="black",las=1) #'las=1' align labels horizontally
+\end_layout
+
+\begin_layout Plain Layout
+
+axis(2, col="blue",las=1) #'las=1' align labels horizontally
+\end_layout
+
+\begin_layout Plain Layout
+
+mtext("# Hydrobia",side=2,line=2.5,col="blue")
+\end_layout
+
+\begin_layout Plain Layout
+
+box()
+\end_layout
+
+\begin_layout Plain Layout
+
+par(new = TRUE) # Prevents R from clearing the area 
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(
+\end_layout
+
+\begin_layout Plain Layout
+
+	Nereis_diversicolor ~ redox_calib, axes = FALSE, bty = "n", xlab = "",
+ ylab = "", data = TallySpeciesPerRedox(),
+\end_layout
+
+\begin_layout Plain Layout
+
+	type="b",
+\end_layout
+
+\begin_layout Plain Layout
+
+	col = "red",
+\end_layout
+
+\begin_layout Plain Layout
+
+	yaxt="n", 
+\end_layout
+
+\begin_layout Plain Layout
+
+	pch = 19
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+axis(
+\end_layout
+
+\begin_layout Plain Layout
+
+	side=4, 
+\end_layout
+
+\begin_layout Plain Layout
+
+	at=seq(0,3,1), #Otherwise, 0.5 would be shown as a tick mark
+\end_layout
+
+\begin_layout Plain Layout
+
+	col="red",
+\end_layout
+
+\begin_layout Plain Layout
+
+	las=1 #Align labels horizontally
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+mtext("# Nereis", side=4, line=3,col="red")
+\end_layout
+
+\begin_layout Plain Layout
+
+legend("topright",
+\end_layout
+
+\begin_layout Plain Layout
+
+  inset=0.05,title = "Species name", c("Hydrobia ulvae", "Nereis diversicolor"),h
+oriz=TRUE,
+\end_layout
+
+\begin_layout Plain Layout
+
+  fill=c("blue","red"), 
+\end_layout
+
+\begin_layout Plain Layout
+
+	cex = 0.75
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# Redox potentials along the transect for the two depths
+\end_layout
+
+\begin_layout Plain Layout
+
+dist_to_redox <- subset(CreateDataRedox(), CreateDataRedox()$dist_m %in%
+ GetDistances())
+\end_layout
+
+\begin_layout Plain Layout
+
+y_min <- min(dist_to_redox$redox_calib) - 100
+\end_layout
+
+\begin_layout Plain Layout
+
+y_max <- max(dist_to_redox$redox_calib) + 1000
+\end_layout
+
+\begin_layout Plain Layout
+
+y_text <- y_max - 200
+\end_layout
+
+\begin_layout Plain Layout
+
+plot(
+\end_layout
+
+\begin_layout Plain Layout
+
+	dist_to_redox$redox_calib ~ dist_to_redox$dist_m,
+\end_layout
+
+\begin_layout Plain Layout
+
+	col = as.factor(dist_to_redox$depth_cm), 
+\end_layout
+
+\begin_layout Plain Layout
+
+	pch = 19,
+\end_layout
+
+\begin_layout Plain Layout
+
+	main="Redox potentials along the transect
+\backslash
+nfor the two depths",
+\end_layout
+
+\begin_layout Plain Layout
+
+	xlab="Distance along transect (m)",
+\end_layout
+
+\begin_layout Plain Layout
+
+	ylab="Redox potential (mV)",
+\end_layout
+
+\begin_layout Plain Layout
+
+	ylim=c(y_min,y_max)
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+segments(1125,y_min,1125,y_max,col="black",lty=3)
+\end_layout
+
+\begin_layout Plain Layout
+
+segments(1900,y_min,1900,y_max,col="black",lty=3)
+\end_layout
+
+\begin_layout Plain Layout
+
+segments(2225,y_min,2225,y_max,col="black",lty=3)
+\end_layout
+
+\begin_layout Plain Layout
+
+text((1125 + 150) / 2,y_text,"Salt
+\backslash
+nmarsh")
+\end_layout
+
+\begin_layout Plain Layout
+
+text((1900 + 1125) / 2,y_text,"Mud
+\backslash
+nflat")
+\end_layout
+
+\begin_layout Plain Layout
+
+text((2225 + 1900) / 2,y_text,"Mussel
+\backslash
+nbed")
+\end_layout
+
+\begin_layout Plain Layout
+
+text(-50 + ((2600 + 2225) / 2),y_text,"Mud
+\backslash
+nflat")
+\end_layout
+
+\begin_layout Plain Layout
+
+legend("bottomleft",
+\end_layout
+
+\begin_layout Plain Layout
+
+  inset=0.05,title = "Sampling depth", c("2 cm", "10 cm"),horiz=TRUE,
+\end_layout
+
+\begin_layout Plain Layout
+
+  fill=c(1,2,3), cex = 1.0
+\end_layout
+
+\begin_layout Plain Layout
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+rm(dist_to_redox)
+\end_layout
+
+\begin_layout Plain Layout
+
+rm(y_min)
+\end_layout
+
+\begin_layout Plain Layout
+
+rm(y_max)
+\end_layout
+
+\begin_layout Plain Layout
+
+rm(y_text)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
