@@ -267,6 +267,7 @@ write.csv(TallySelectedSpeciesPerRedox(),file="table_redox_to_selected_species.c
 
 # Generate figure for species abundances for the range of redox potentials
 #   in two vertically aligned plots
+svg(filename="Figure_species_abundances_seperate.svg")
 par(mfrow=c(2,1))
 plot(
 	Hydrobia_ulvae ~ redox_calib, 
@@ -274,9 +275,9 @@ plot(
 	t = "b", 
 	pch = 19, 
 	col = "black",
-	main = "Hydrobia ulvae abundance",
+	#main = "Hydrobia ulvae abundance",
 	xlab = "Redox potential (mV)",
-	ylab = "Number of individuals"
+	ylab = "# Hydrobia ulvae"
 )
 plot(
 	Nereis_diversicolor ~ redox_calib, 
@@ -284,18 +285,22 @@ plot(
 	t = "b", 
 	pch = 19, 
 	col = "black",
-	main = "Nereis diversicolor abundance",
+	#main = "Nereis diversicolor abundance",
 	xlab = "Redox potential (mV)",
-	ylab = "Number of individuals",
+	ylab = "# Nereis Diversicolor",
 	ylim = c(0,4)
 )
 par(mfrow=c(1,1))
+dev.off()
 
 # Generate figure for species abundances for the range of redox potentials
 #   in the same plot
+svg(filename="Figure_species_abundances.svg")
 par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for z axis
+par(new = FALSE) 
 plot(Hydrobia_ulvae ~ redox_calib, data = TallySpeciesPerRedox(), pch=19, axes=FALSE, xlab="Redox potential (mV)", ylab="", 
-   type="b",col="blue", main="Species abundandances\nfor different redox potentials"
+   type="b",col="blue"
+	#main="Species abundandances\nfor different redox potentials"
 )
 axis(1, col="black",las=1) #'las=1' align labels horizontally
 axis(2, col="blue",las=1) #'las=1' align labels horizontally
@@ -321,8 +326,10 @@ legend("topright",
   fill=c("blue","red"), 
 	cex = 0.75
 )
+dev.off()
 
 # Redox potentials along the transect for the two depths
+svg(filename="Figure_redox_per_distance.svg")
 dist_to_redox <- subset(CreateDataRedox(), CreateDataRedox()$dist_m %in% GetDistances())
 y_min <- min(dist_to_redox$redox_calib) - 100
 y_max <- max(dist_to_redox$redox_calib) + 1000
@@ -331,7 +338,7 @@ plot(
 	dist_to_redox$redox_calib ~ dist_to_redox$dist_m,
 	col = as.factor(dist_to_redox$depth_cm), 
 	pch = 19,
-	main="Redox potentials along the transect\nfor the two depths",
+	#main="Redox potentials along the transect\nfor the two depths",
 	xlab="Distance along transect (m)",
 	ylab="Redox potential (mV)",
 	ylim=c(y_min,y_max)
@@ -351,3 +358,4 @@ rm(dist_to_redox)
 rm(y_min)
 rm(y_max)
 rm(y_text)
+dev.off()
